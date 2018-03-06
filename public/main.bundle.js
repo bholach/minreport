@@ -2255,7 +2255,7 @@ var ExamsComponent = /** @class */ (function () {
     };
     ExamsComponent.prototype.startExam = function (value) {
         //console.log("examname = "+value);
-        //this.route.navigate(['/testboard',value]);
+        this.route.navigate(['/examboard', value]);
     };
     //==================(Getting Exams Data)========================//
     ExamsComponent.prototype.closeTutBox = function () {
@@ -2658,14 +2658,15 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = this.prepEndpoint('http://localhost:3000/users/register');
+        // let ep = this.prepEndpoint('http://localhost:3000/users/register');
+        var ep = this.prepEndpoint('users/register');
         return this.http.post(ep, user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.changePass = function (pass) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = this.prepEndpoint('http://localhost:3000/users/changepass');
+        var ep = this.prepEndpoint('users/changepass');
         console.log(pass);
         return this.http.post(ep, pass, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -2673,14 +2674,14 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = this.prepEndpoint('http://localhost:3000/users/authenticate');
+        var ep = this.prepEndpoint('users/authenticate');
         return this.http.post(ep, user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.authenticateAdmin = function (admin) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = this.prepEndpoint('http://localhost:3000/admin/authenticate');
+        var ep = this.prepEndpoint('admin/authenticate');
         return this.http.post(ep, admin, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2688,7 +2689,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.resetPass = function (email) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = this.prepEndpoint('http://localhost:3000/users/resetpass');
+        var ep = this.prepEndpoint('users/resetpass');
         return this.http.post(ep, email, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2697,7 +2698,7 @@ var AuthService = /** @class */ (function () {
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        var ep = this.prepEndpoint('http://localhost:3000/users/profile');
+        var ep = this.prepEndpoint('users/profile');
         return this.http.get(ep, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2773,7 +2774,8 @@ var ExamService = /** @class */ (function () {
     ExamService.prototype.getExams = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/exams/examnames';
+        //let ep = 'http://localhost:3000/exams/examnames';
+        var ep = 'exams/examnames';
         return this.http.get(ep, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2781,7 +2783,7 @@ var ExamService = /** @class */ (function () {
     ExamService.prototype.addExam = function (exam) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/exams/addexam';
+        var ep = 'exams/addexam';
         return this.http.post(ep, exam, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2789,7 +2791,7 @@ var ExamService = /** @class */ (function () {
     ExamService.prototype.addExamQuestion = function (examQuestion) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/exams/addquestion';
+        var ep = 'exams/addquestion';
         return this.http.post(ep, examQuestion, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2797,7 +2799,7 @@ var ExamService = /** @class */ (function () {
     ExamService.prototype.getExamQuestion = function (exam) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/exams/getquestions';
+        var ep = 'exams/getquestions';
         return this.http.post(ep, exam, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2805,7 +2807,7 @@ var ExamService = /** @class */ (function () {
     ExamService.prototype.getExamQuestionStat = function (exam) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/exams/examquesstat';
+        var ep = 'exams/examquesstat';
         return this.http.post(ep, exam, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2852,7 +2854,8 @@ var QuestionService = /** @class */ (function () {
     QuestionService.prototype.addQuestion = function (question) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/question/add';
+        // let ep = 'http://localhost:3000/question/add';
+        var ep = 'question/add';
         return this.http.post(ep, question, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2860,7 +2863,7 @@ var QuestionService = /** @class */ (function () {
     QuestionService.prototype.getCategory = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/category/getcategories';
+        var ep = 'category/getcategories';
         return this.http.get(ep, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2868,7 +2871,7 @@ var QuestionService = /** @class */ (function () {
     QuestionService.prototype.getTopics = function (data) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/category/gettopics';
+        var ep = 'category/gettopics';
         return this.http.post(ep, data, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2876,7 +2879,7 @@ var QuestionService = /** @class */ (function () {
     QuestionService.prototype.addCategory = function (category) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/category/addcategory';
+        var ep = 'category/addcategory';
         return this.http.post(ep, category, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2884,7 +2887,7 @@ var QuestionService = /** @class */ (function () {
     QuestionService.prototype.addTopic = function (topic) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/category/addtopic';
+        var ep = 'category/addtopic';
         return this.http.post(ep, topic, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2892,7 +2895,7 @@ var QuestionService = /** @class */ (function () {
     QuestionService.prototype.addExam = function (exam) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/exams/addexam';
+        var ep = 'exams/addexam';
         return this.http.post(ep, exam, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2900,7 +2903,7 @@ var QuestionService = /** @class */ (function () {
     QuestionService.prototype.addExamQuestion = function (examQuestion) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/exams/addquestion';
+        var ep = 'exams/addquestion';
         return this.http.post(ep, examQuestion, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2908,7 +2911,7 @@ var QuestionService = /** @class */ (function () {
     QuestionService.prototype.getExamQuestion = function (exam) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'http://localhost:3000/exams/getquestions';
+        var ep = 'exams/getquestions';
         return this.http.post(ep, exam, { headers: headers })
             .map(function (res) { return res.json(); });
     };
