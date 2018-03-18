@@ -75,7 +75,6 @@ router.post('/examquesstat',(req,res,next) => {
   let newExam = new Exam ({
     examname: req.body.examname
   });
-  console.log(newExam.examname);
   Exam.findOne({examname:newExam.examname},{questions:1},function(err,datas){
     if(err){ return {success:false,msg:"some error ocuured !"};}
     if(!datas){ return {success:false,msg:"some error ocuured !"};}

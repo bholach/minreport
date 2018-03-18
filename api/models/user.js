@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const config = require('../../config/database');
+const nodemailer = require('nodemailer'); //mail agent 
+const uname="uic.17mca1024@gmail.com";
+const pass="tejaSh816";
 
+var add;
 // User Schema
 const UserSchema = mongoose.Schema({
   name: {
@@ -14,20 +18,18 @@ const UserSchema = mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  gender:{
+    type:String,
+    required: true
+  },
+  exam:{
+    type:String,
+    required: true
   }
 });
 
 const User = module.exports = mongoose.model('User', UserSchema,'user');
-
-var data = User.find(function(err,data){
-  if(err){ console.log('no data error');}
-  else{ 
-    console.log('followings are users !');
-    data.forEach(data => {
-      console.log(data.name);
-    });
-    }
-});
 
 module.exports.getUserById = function(id, callback){
   User.findById(id, callback);
@@ -71,4 +73,28 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
     if(err) throw err;
     callback(null, isMatch);
   });
+}
+
+module.exports.setAdress = function(address){
+    add = address;
+    console.log(add);
+}
+//sending mail
+module.exports.sendMail= function(user,callback){
+  var transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // use SSL
+    auth: {user: uname, pass: pass}
+});
+// setup e-mail data
+var mailOptions = {
+  from: '"online Examination Portal " <oexam@oexam.com>', // sender address (who sends)
+  to: user.email, // list of receivers (who receives)
+  subject: 'Password reset link', // Subject line
+  text: 'Password reset link', // plaintext body
+  html: '<b>Hello '+user.name+'</b><br><br>click below button to reset your password<br><br><br><center><a href="'+add+'/resetpass/'+user._id+'" style="color:white;padding:20px;border:none;background:#0bf;width:80px;height:40px;">Reset Link</a></center>' // html body
+};
+// send mail with defined transport object
+transporter.sendMail(mailOptions, callback);
 }

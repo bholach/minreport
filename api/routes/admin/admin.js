@@ -15,7 +15,6 @@ router.post('/register', (req, res, next) => {
   });
   Admin.addAdmin(newAdmin, (err, Admin) => {
     if(err){
-        console.log(err);
       res.json({success: false, msg:'Failed to Add Admin'});
     } else {
       res.json({success: true, msg:'Admin added !'});

@@ -4,13 +4,16 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../../../config/database');
 const User = require('../../models/user');
+
 user:Object;
 // Register
 router.post('/register', (req, res, next) => {
   let newUser = new User({
     name: req.body.name,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    gender:req.body.gender,
+    exam:req.body.exam
   });
   console.log(newUser.name);
   User.addUser(newUser, (err, user) => {
@@ -43,7 +46,9 @@ router.post('/authenticate', (req, res, next) => {
           user: {
             id: user._id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            gender:user.gender,
+            exam:user.exam
           }
         });
       } else {
@@ -79,22 +84,30 @@ router.post('/changepass', (req, res, next) => {
       }
     });
   });
-  });
+});
 
   //password reset route
   router.post('/resetpass',(req,res,next) =>{
-    User.getUserEmail(req.body.email,(err,user)=>{
-      if(err)   return res.json({success: false, msg: 'Some Error Occured !'});
+    User.getUserByEmail(req.body.email,(err,user)=>{
+      if(err) return res.json({success: false, msg: 'Some Error Occured !'});
       else{
         if(user){
-          return res.json({success: true, msg: 'hai !'});
+          User.sendMail(user,(err,info)=>{
+            if(err){
+              return res.json({success: false, msg: 'Failed to send Email !'});
+            }
+            else{
+              return res.json({success: true, msg: 'Password Reset link has been send to your email address.Please check your mail.'});
+            }
+          })
         }
         else{
-          return res.json({success: false, msg: 'nahi hai!'});
+          return res.json({success: false, msg: 'No account linked to this email'});
         }
       }
     });
   });
+
 // Profile
 router.get('/profile', (req, res, next) => {
   res.json({user:req.user});
@@ -110,5 +123,6 @@ router.get('/everifykey:everifykey?', (req, res, next) => {
  res.redirect('http://localhost:4200/login');
 
 });
+
 
 module.exports = router;

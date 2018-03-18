@@ -25,10 +25,9 @@ router.post('/add', (req, res, next) => {
 router.get('/getquestions',(req,res,next) => {
     Question.find({category:"english"},function(err,datas){
 
-      if(err){ console.log('no data error'); return {success:false,msg:"failed"};}
+      if(err){return {success:false,msg:"failed"};}
       else{ 
-        console.log("===============");
-        console.log(datas);
+
         res.json(datas);
       }
     });
