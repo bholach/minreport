@@ -107,7 +107,29 @@ router.post('/changepass', (req, res, next) => {
       }
     });
   });
-
+// get users
+router.get('/alluser', (req, res, next) => {
+ var usersData=[];
+  User.getAllUsers((err,users)=>{
+    if(err) return res.json({success: false, msg: 'Some Error Occured !'});
+   
+    else{
+      if(users){
+        users.forEach(data => {
+          usersData.push({
+            name:data.name,
+            email:data.email,
+            gender:data.gender,
+            age:data.age,
+            exam:data.exam
+          });
+        });
+        res.json({success: true, users: usersData});
+      }
+      else{ return res.json({success: false, msg: 'No user found'});}
+    }
+  });
+});
 // Profile
 router.get('/profile', (req, res, next) => {
   res.json({user:req.user});

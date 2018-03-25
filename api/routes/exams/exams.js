@@ -4,15 +4,15 @@ const config = require('../../../config/database');
 const Exam = require('../../models/exams');
 Exam:Object;
 // Exam 
-const availCategory = ["aptitute","resoning","english","genral awareness"];
+const availCategory = ["aptitute","resoning","english","genralawareness"];
 
 router.post('/addexam', (req, res, next) => {
   let newExam = new Exam ({
     examname: req.body.examname
   });
-  Exam.findOne({},(err,data)=>{
+  Exam.findOne({examname:newExam.examname},(err,data)=>{
     if(data)
-    res.json({success:false,msg:"exam already exist"});
+      res.json({success:false,msg:"exam already exist"});
     else{
       Exam.addExam(newExam,(err, data) => {
         if(err){
@@ -26,6 +26,49 @@ router.post('/addexam', (req, res, next) => {
   });
  
 });
+
+//update exams name
+router.post('/updateexam', (req, res, next) => {
+  let newExam={
+    oldExamName : req.body.oldExamName,
+    newExamName : req.body.newExamName
+  }
+  Exam.UpdateExam(newExam,(err,data)=>{
+    if(err){
+      res.json({success: false, msg:'Some Error Occured'});
+    }
+      else{
+        if(data.nModified){
+          res.json({success: true, msg:'updated Successfully'});
+        }
+        else{
+         res.json({success: false, msg:'Failed to update exam name'});
+        }
+      }
+  });
+ 
+});
+//deleting exams
+router.post('/deleteexam', (req, res, next) => {
+  let newExam = new Exam ({
+    examname: req.body.examname
+  });
+  Exam.findOne({examname:newExam.examname},(err,data)=>{
+    if(data)
+      {
+        Exam.findByIdAndRemove({_id: data._id},(err,data)=>{
+          if(err){
+            res.json({success: false, msg:'Failed to delete exam'});
+          } 
+          else if(data)
+            res.json({success:true,msg:"Exam deleted successfully"});
+        });
+      }
+    else res.json({success:false,msg:"Exam Doesn't exist"});   
+  });
+ 
+});
+
 
 router.post('/addquestion', (req, res, next) => {
     let newExam = new Exam ({
@@ -44,6 +87,48 @@ router.post('/addquestion', (req, res, next) => {
       }
     });
   });
+//update question
+router.post('/updateQues', (req, res, next) => {
+  let newQues = {
+    examname : req.body.examname,
+    questions : req.body.questions
+  };
+  Exam.UpdateQues(newQues,req.body.QID,(err,data)=>{
+    if(err){
+      res.json({success: false, msg:'Some Error Occured'});
+    }
+      else{
+        if(data.nModified){
+          res.json({success: true, msg:'updated Successfully'});
+        }
+        else{
+         res.json({success: false, msg:'Failed to update Question'});
+        }
+      }
+  });
+});
+
+//deleting Questions
+router.post('/deletequestion', (req, res, next) => {
+  let newExam = new Exam ({
+    examname: req.body.examname
+  });
+  Exam.find({examname:newExam.examname},(err,data)=>{
+    if(data)
+      {
+            Exam.update({examname:newExam.examname},{$pull:{questions:{_id:req.body.QID}}},(err,data)=>{
+              if(err){
+                res.json({success: false, msg:'Failed to delete question'+err});
+              } 
+              else if(data)
+                res.json({success:true,msg:"Question deleted successfully"});
+            });
+  }
+    else res.json({success:false,msg:"Question Doesn't exist"});   
+  });
+ 
+});
+
 
  router.get('/examnames',(req,res,next) => {
     Exam.find({},{examname:1},function(err,datas){

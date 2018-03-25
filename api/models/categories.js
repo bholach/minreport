@@ -29,11 +29,5 @@ module.exports.addCategory = function(newCat, callback){
          newCat.save(callback);
 }
 
-//adding Topics to category
-module.exports.addTopic = function(newTopic, callback){
-  var myquery = {category: newTopic.category};
-  var newvalues ={$push: {topics : newTopic.topics}};
-  Category.updateOne(myquery, newvalues, callback);
-  }
 
 

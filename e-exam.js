@@ -8,11 +8,10 @@ const users = require('./api/routes/user/users');
 const admin = require('./api/routes/admin/admin');
 const question = require('./api/routes/questions/question');
 const exam = require('./api/routes/exams/exams');
+const answers = require('./api/routes/answers/answers');
 const category = require('./api/routes/categories/categories');
+const result = require('./api/routes/result/result');
 const config = require('./config/database');
-var hostname = require('os').hostname;
-const User = require('./api/models/user');
-var url = require('url');
 // Connect To Database
 mongoose.connect(config.database);
 // On Connection
@@ -46,6 +45,8 @@ app.use('/admin', admin);
 app.use('/question',question);
 app.use('/category',category);
 app.use('/exams',exam);
+app.use('/answers',answers);
+app.use('/result',result);
 // Set Static Folder
 app.use(express.static(path.join(__dirname, './public')));
 
@@ -53,15 +54,12 @@ app.use(express.static(path.join(__dirname, './public')));
 app.get('/', (req, res) => {
   res.send('Invalid Endpoint');
 });
-var q;
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-var listener = app.listen(port,function(){
-	 var host = listener.address().address
-     var port = listener.address().port
-     console.log('server running on port '+port);
+let listener = app.listen(port,function(){
+  console.log('server running on port '+port);
 });
 //console.log(""+listener.address().address);
-User.setAdress(listener.address().address);

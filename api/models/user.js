@@ -4,8 +4,6 @@ const config = require('../../config/database');
 const nodemailer = require('nodemailer'); //mail agent 
 const uname="uic.17mca1024@gmail.com";
 const pass="tejaSh816";
-
-var add;
 // User Schema
 const UserSchema = mongoose.Schema({
   name: {
@@ -40,6 +38,9 @@ module.exports.getUserByUsername = function(username, callback){
   User.findOne(query, callback);
 }
 
+module.exports.getAllUsers = function(callback){
+  User.find(callback);
+}
 //finding email
 module.exports.getUserByEmail = function(email,callback){
   const query = {email: email};
@@ -75,10 +76,6 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
   });
 }
 
-module.exports.setAdress = function(address){
-    add = address;
-    console.log(add);
-}
 //sending mail
 module.exports.sendMail= function(user,callback){
   var transporter = nodemailer.createTransport({
@@ -93,7 +90,7 @@ var mailOptions = {
   to: user.email, // list of receivers (who receives)
   subject: 'Password reset link', // Subject line
   text: 'Password reset link', // plaintext body
-  html: '<b>Hello '+user.name+'</b><br><br>click below button to reset your password<br><br><br><center><a href="'+add+'/resetpass/'+user._id+'" style="color:white;padding:20px;border:none;background:#0bf;width:80px;height:40px;">Reset Link</a></center>' // html body
+  html: '<b>Hello '+user.name+'</b><br><br>click below button to reset your password<br><br><br><center><a href="http://localhost:4200/resetpass/'+user._id+'" style="color:white;padding:20px;border:none;background:#0bf;width:80px;height:40px;">Reset Link</a></center>' // html body
 };
 // send mail with defined transport object
 transporter.sendMail(mailOptions, callback);

@@ -26,69 +26,54 @@ router.post('/addcategory', (req, res, next) => {
   });
 
 });
-router.post('/addtopic', (req, res, next) => {
-
-    let newCategory = new Category ({
-      category: req.body.category,
-      topics : req.body.topics
-    });
-    Category.findOne({category:newCategory.category},(err,data)=>{
-          if(!data){
-            res.json({success: false, msg:'Sorry! provide category is not available '});
-          }
-          else{
-            let flag=false;
-            let query ={
-              category:newCategory.category
-            }
-            Category.find(query,{topics:1},(err,data)=>{
-              if(data){
-                data.forEach(dd=>{
-                  for(let i=0 ; i<dd.topics.length;i++){
-                    if(newCategory.topics[0].name == dd.topics[i].name)               
-                        flag = true;
-                  }               
-                }); 
-                if(flag){
-                   flag=false;
-                  res.json({success: false, msg:'Sorry! Topic already available '});   
-                }           
-              else{
-                Category.addTopic(newCategory, (err, data) => {
-                  if(err){
-                    res.json({success: false, msg:'some error occured'});
-                  } 
-                  else if(data.nModified){
-                    flag=false;
-                    res.json({success: true, msg:'Topic added Successfully !'});        
-                  }
-                  else if(data.ok){
-                    flag=false;
-                    res.json({success: true, msg:'Topic added Successfully !'});
-                  }
-                  else {
-                    res.json({success: false, msg:"some error occured"});
-                  }
-                });
-              }
-            }
-          });
-       }
-    });
-    
+//remove category
+router.post('/removecat', (req, res, next) => {
+  let newCategory = new Category ({
+    category: req.body.category
   });
+  Category.remove({category:newCategory.category},(err,data)=>{
+    if(err){
+      res.json({success: false, msg:'Some Error Occured'});
+    }
+      else{
+        if(data.n){
+          res.json({success: true, msg:'Deleted Successfully'});
+        }
+        else{
+         res.json({success: false, msg:'Failed to delete category'});
+        }
+      }
+  });
+
+});
+//update category
+router.post('/updatecat', (req, res, next) => {
+
+  Category.updateOne({category:req.body.oldCat},{$set:{category:req.body.newCat}},(err,data)=>{
+    if(err){
+      res.json({success: false, msg:'Some Error Occured'});
+    }
+      else{
+        if(data.nModified){
+          res.json({success: true, msg:'updated Successfully'});
+        }
+        else{
+         res.json({success: false, msg:'Failed to update category'});
+        }
+      }
+  });
+
+});
 
 router.get('/getcategories',(req,res,next) => {
     Category.find({},{category:1},function(err,datas){
       if(err){ return {success:false,msg:"some error ocuured !"};}
       else{ 
-        //res.json(datas);
         var cat = [];
         datas.forEach(element => {
           cat.push(element.category)
         });
         JSON.stringify(cat);
-        //let data = JSON.parse(cat);
         res.json({
           success:true,
           categories : cat
@@ -97,19 +82,5 @@ router.get('/getcategories',(req,res,next) => {
     });
   });
  
-  router.post('/gettopics',(req,res,next) => {
-    let newCategory = new Category ({
-        category: req.body.category
-      });
-    Category.findOne({category:req.body.category},{topics:1},function(err,datas){
-      if(err){ return {success:false,msg:"some error occured !"};}
-      else{
-        if(datas.topics.length)
-        res.json({success:true,data:datas});
-        else
-        res.json({success:false,msg:"sorry! no topic available for this category"});
-      }
-    });
-  });
-
+  
 module.exports = router;

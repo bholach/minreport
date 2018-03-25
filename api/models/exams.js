@@ -42,12 +42,27 @@ module.exports.findExamQuestion = function(examName, callback){
   Exam.findOne(query, callback);
 }
 
-//adding user to database
+module.exports.UpdateExam = function(newExam,callback){
+  const query = {examname:newExam.oldExamName}
+  const queryup = {$set:{examname:newExam.newExamName}}
+  Exam.updateOne(query,queryup,callback);
+}
+//updating qestion
+module.exports.UpdateQues = function(newQues,id,callback){
+ 
+        const query = {examname:newQues.examname,questions:{_id:id}}
+        const queryup = {$set:{questions:{
+          question : newQues.examanme,
+          answer : 2666
+        }}}
+        Exam.updateOne(query,queryup,callback);
+}
+//adding exam to database
 module.exports.addExam = function(newExam, callback){
          newExam.save(callback);
 }
 
-//adding Topics to Exam
+//adding questiob to Exam
 module.exports.addQuestion = function(newQuestion, callback){
   var myquery = {examname: newQuestion.examname};
   var newvalues ={$push: {questions : newQuestion.questions}};
