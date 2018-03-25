@@ -106,6 +106,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_examboard_examresult_examresult_component__ = __webpack_require__("./src/app/components/examboard/examresult/examresult.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_errorpage_errorpage_component__ = __webpack_require__("./src/app/components/errorpage/errorpage.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_register_register_component__ = __webpack_require__("./src/app/components/register/register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_ahome_student_details_student_details_component__ = __webpack_require__("./src/app/components/ahome/student-details/student-details.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -126,6 +127,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 //components
+
 
 
 
@@ -179,7 +181,8 @@ var appRoutes = [
         children: [
             { path: '', component: __WEBPACK_IMPORTED_MODULE_28__components_ahome_adashboard_adashboard_component__["a" /* AdashboardComponent */] },
             { path: 'upload', component: __WEBPACK_IMPORTED_MODULE_26__components_ahome_upload_upload_component__["a" /* UploadComponent */] },
-            { path: 'extra', component: __WEBPACK_IMPORTED_MODULE_29__components_ahome_extra_extra_component__["a" /* ExtraComponent */] }
+            { path: 'extra', component: __WEBPACK_IMPORTED_MODULE_29__components_ahome_extra_extra_component__["a" /* ExtraComponent */] },
+            { path: 'students', component: __WEBPACK_IMPORTED_MODULE_36__components_ahome_student_details_student_details_component__["a" /* StudentDetailsComponent */] }
         ]
     }
 ];
@@ -213,7 +216,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_32__components_examboard_examdash_examdash_component__["a" /* ExamdashComponent */],
                 __WEBPACK_IMPORTED_MODULE_33__components_examboard_examresult_examresult_component__["a" /* ExamresultComponent */],
                 __WEBPACK_IMPORTED_MODULE_34__components_errorpage_errorpage_component__["a" /* ErrorpageComponent */],
-                __WEBPACK_IMPORTED_MODULE_35__components_register_register_component__["a" /* RegisterComponent */]
+                __WEBPACK_IMPORTED_MODULE_35__components_register_register_component__["a" /* RegisterComponent */],
+                __WEBPACK_IMPORTED_MODULE_36__components_ahome_student_details_student_details_component__["a" /* StudentDetailsComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -248,7 +252,7 @@ module.exports = ""
 /***/ "./src/app/components/ahome/adashboard/adashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<div class=\"jumbotron container\">\r\n    <h1 class=\"display-3\">ADMIN Panel</h1>\r\n    <p class=\"lead\">Welcome to Admin Panel.</p>\r\n    <hr class=\"my-4\">\r\n    <p>Edit ,view,upload Question and Students  Details,scoress and more......\r\n    </p>\r\n    <p class=\"lead\">\r\n      <a class=\"btn btn-primary btn-lg\" [routerLink]=\"['/e-examadmin/dash/upload']\" role=\"button\">View Exams</a>\r\n    </p>\r\n  </div>"
 
 /***/ }),
 
@@ -348,7 +352,7 @@ module.exports = ".chip.chip-md {\r\n    height: 42px;\r\n    line-height: 42px;
 /***/ "./src/app/components/ahome/anavbar/anavbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = " <!--Navbar-->\n <nav class=\"navbar navbar-expand-lg navbar-dark indigo\" id=\"nbar\">\n       \n  <div class=\"container\">\n  <!-- Navbar brand -->\n  <a class=\"navbar-brand\" href=\"#\">Admin DashBoard</a>\n\n  <!-- Collapse button -->\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\n      aria-expanded=\"false\" aria-label=\"Toggle navigation\"><span class=\"navbar-toggler-icon\"></span></button>\n\n  <!-- Collapsible content -->\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n\n      <!-- Links -->\n      <ul class=\"navbar-nav mr-auto\">\n          <li class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] =\"{exact:true}\">\n              <a class=\"nav-link\" [routerLink]=\"['/e-examadmin/dash']\"> Home</a>\n          </li>\n          <li class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] =\"{exact:true}\">\n              <a class=\"nav-link\" [routerLink]=\"['/e-examadmin/dash/upload']\"> Uploads</a>\n          </li>\n          <li class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] =\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/e-examadmin/dash/extra']\" >Extra Options</a>\n            </li>\n      </ul>\n      <!-- Links -->\n\n      <!-- Search form -->\n      <form class=\"form-inline\">\n        <ul class=\"navbar-nav mr-0\">\n           <!-- Dropdown -->\n           <li class=\"nav-item dropdown\">\n            <a class=\"nav-link  \" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n            <!--  <i class=\" fa fa-user-circle fa-7x\"></i> -->\n            <div class=\"chip chip-md cyan darken-2 white-text hoverable\">\n                  <img src=\"https://mdbootstrap.com/img/Photos/Avatars/img(27).jpg\" alt=\"Contact Person\">{{admin_name}}&nbsp;&nbsp;\n              </div>\n            </a>\n            <div class=\"dropdown-menu dropdown-primary\" aria-labelledby=\"navbarDropdownMenuLink\">\n                <a class=\"dropdown-item\" href=\"#\"><i class=\"fa fa-user\"></i> Profile</a>\n                <a class=\"dropdown-item\" href=\"#\"><i class=\"fa fa-cog\"></i> Settings</a>\n                <a class=\"dropdown-item\" data-toggle=\"modal\" data-target=\"#modalConfirmlogout\">\n                    <i class=\"fa fa-share-square\"></i> Signout</a>\n            </div>\n        </li>\n        </ul>\n      </form>\n  </div>\n  <!-- Collapsible content -->\n</div>\n</nav>\n<!--/.Navbar-->\n\n<!--Modal: modalConfirmDelete-->\n<div class=\"modal fade\" id=\"modalConfirmlogout\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-sm modal-notify modal-danger\" role=\"document\">\n        <!--Content-->\n        <div class=\"modal-content text-center\">\n            <!--Header-->\n            <div class=\"modal-header d-flex justify-content-center\">\n                <p class=\"heading\">Are you sure?</p>\n            </div>\n            <!--Body-->  \n            <!--Footer-->\n            <div class=\"modal-footer flex-center\">\n                <a class=\"btn  btn-outline-danger\" (click)=\"onLogoutClick()\">Yes</a>\n                <a type=\"button\" class=\"btn  btn-danger waves-effect\" data-dismiss=\"modal\">No</a>\n            </div>\n        </div>\n        <!--/.Content-->\n    </div>\n</div>\n<!--Modal: modalConfirmlogout-->"
+module.exports = " <!--Navbar-->\n <nav class=\"navbar navbar-expand-lg navbar-dark indigo\" id=\"nbar\">\n       \n  <div class=\"container\">\n  <!-- Navbar brand -->\n  <a class=\"navbar-brand\" href=\"#\">Admin DashBoard</a>\n\n  <!-- Collapse button -->\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\n      aria-expanded=\"false\" aria-label=\"Toggle navigation\"><span class=\"navbar-toggler-icon\"></span></button>\n\n  <!-- Collapsible content -->\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n\n      <!-- Links -->\n      <ul class=\"navbar-nav mr-auto\">\n          <li class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] =\"{exact:true}\">\n              <a class=\"nav-link\" [routerLink]=\"['/e-examadmin/dash']\">Home</a>\n          </li>\n          <li class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] =\"{exact:true}\">\n              <a class=\"nav-link\" [routerLink]=\"['/e-examadmin/dash/upload']\">Uploads</a>\n          </li>\n          <li class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] =\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/e-examadmin/dash/students']\" >Students Details</a>\n          </li>\n          <li class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] =\"{exact:true}\">\n                <a class=\"nav-link\" [routerLink]=\"['/e-examadmin/dash/extra']\">Extra Options</a>\n          </li>\n      </ul>\n      <!-- Links -->\n\n      <!-- Search form -->\n      <form class=\"form-inline\">\n        <ul class=\"navbar-nav mr-0\">\n           <!-- Dropdown -->\n           <li class=\"nav-item dropdown\">\n            <a class=\"nav-link  \" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n            <!--  <i class=\" fa fa-user-circle fa-7x\"></i> -->\n            <div class=\"chip chip-md cyan darken-2 white-text hoverable\">\n                  <img src=\"https://mdbootstrap.com/img/Photos/Avatars/img(27).jpg\" alt=\"Contact Person\">{{admin_name}}&nbsp;&nbsp;\n              </div>\n            </a>\n            <div class=\"dropdown-menu dropdown-primary\" aria-labelledby=\"navbarDropdownMenuLink\">\n                <a class=\"dropdown-item\" href=\"#\"><i class=\"fa fa-user\"></i> Profile</a>\n                <a class=\"dropdown-item\" href=\"#\"><i class=\"fa fa-cog\"></i> Settings</a>\n                <a class=\"dropdown-item\" data-toggle=\"modal\" data-target=\"#modalConfirmlogout\">\n                    <i class=\"fa fa-share-square\"></i> Signout</a>\n            </div>\n        </li>\n        </ul>\n      </form>\n  </div>\n  <!-- Collapsible content -->\n</div>\n</nav>\n<!--/.Navbar-->\n\n<!--Modal: modalConfirmDelete-->\n<div class=\"modal fade\" id=\"modalConfirmlogout\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-sm modal-notify modal-danger\" role=\"document\">\n        <!--Content-->\n        <div class=\"modal-content text-center\">\n            <!--Header-->\n            <div class=\"modal-header d-flex justify-content-center\">\n                <p class=\"heading\">Are you sure?</p>\n            </div>\n            <!--Body-->  \n            <!--Footer-->\n            <div class=\"modal-footer flex-center\">\n                <a class=\"btn  btn-outline-danger\" data-dismiss=\"modal\" (click)=\"onLogoutClick()\">Yes</a>\n                <a type=\"button\" class=\"btn  btn-danger waves-effect\" data-dismiss=\"modal\">No</a>\n            </div>\n        </div>\n        <!--/.Content-->\n    </div>\n</div>\n<!--Modal: modalConfirmlogout-->"
 
 /***/ }),
 
@@ -412,7 +416,7 @@ module.exports = ".uploadbox{\r\n    padding:30px;\r\n    margin-bottom: 5px;\r\
 /***/ "./src/app/components/ahome/extra/extra.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"uploadbox\">     \n    <div class=\"row\">\n        <!-- First column -->\n        <div class=\"col-3\">\n          <!-- Navigation -->\n          <div class=\"list-group menu\" id=\"list-tab\" role=\"tablist\">\n            <a class=\"list-group-item  success-color center\">Extra Pannel</a>\n            <a class=\"list-group-item list-group-item-action active hoverable\" id=\"add-cat\" data-toggle=\"list\" href=\"#list-category\" role=\"tab\" (click)=\"resetMsg()\">Add Category</a>\n            <a class=\"list-group-item list-group-item-action hoverable\" id=\"add-topic\" data-toggle=\"list\" href=\"#list-topics\" role=\"tab\" (click)=\"refreshTopics();resetMsg()\" >Add Topic</a>\n            <a class=\"list-group-item list-group-item-action hoverable\" id=\"add-exam\" data-toggle=\"list\" href=\"#list-exams\" role=\"tab\" (click)=\"resetMsg()\">Add Exam</a>\n          </div>\n          <!-- Navigation -->\n        </div>\n        <!-- First column -->\n        <!-- Second column -->\n  <div class=\"col-9\">\n          <!-- Content -->\n    <div class=\"tab-content\" id=\"nav-tabContent\">\n        <div class=\"tab-pane fade show active \" id=\"list-category\" role=\"tabpanel\" aria-labelledby=\"list-home-list\">\n             <div class=\"card text-center box scroll\" role=\"scroll\">\n                <div class=\"card-header success-color white-text fixed\">\n                      Categories\n                </div>\n                <div class=\"card-body topic-box\">\n                    <!-- Card -->\n                <div class=\"alert alert-dismissible alert-success\" *ngIf=\"successmsg\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                           {{successmsg}}\n                      </div>\n                      <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"errormsg\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                           {{errormsg}}\n                      </div>\n                      <form (submit)=\"addCategory()\">\n                          <table class=\"table table-hover\">\n                            <tr class=\"table-primary\" >\n                               <th>Category Name<br/>\n                                  <input type=\"text\" class=\"form-control\"  [(ngModel)]=\"cat\" name=\"cat\"></th>\n                                 <th><input class=\"btn btn-primary\" type=\"submit\" value=\"add new\"></th>\n                            </tr>\n                          </table>\n                       </form>\n                    </div>\n                </div>\n            </div>\n            <!--Upload Tutorials-->\n            <div class=\"tab-pane fade\" id=\"list-topics\" role=\"tabpanel\" aria-labelledby=\"list-profile-list\">\n              <div class=\"card text-center box scroll\" role=\"scroll\">\n                  <div class=\"card-header success-color white-text fixed\">\n                      Topics \n                  </div><br>\n                  <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"errormsg\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{errormsg}}\n                </div>\n                <div class=\"alert alert-dismissible alert-success\" *ngIf=\"successmsg\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{successmsg}}\n               </div>\n                 <div class=\"card-body topic-box\"> \n                    <!-- Card -->\n                      <form (submit)=\"addTopic()\">\n                      <table class=\"table table-hover\">\n                        <tr class=\"table-primary\" >\n                          <th>Choose Category<br/>\n                            <select class=\"form-control\" [(ngModel)]=\"category\" name=\"category\">\n                                <option *ngFor=\"let category of categories\"\n                                value=\"{{category}}\">{{category}}</option>\n                              </select>\n                          </th>\n                           <th>Topic Name<br/>\n                              <input type=\"text\" class=\"form-control\" [(ngModel)]=\"topic\" name=\"topic\"></th>\n                             <th><input class=\"btn btn-primary\" type=\"submit\" value=\"add new\"></th>\n                        </tr>\n                      </table>\n                   </form>\n                  </div>\n              </div>\n            </div> <!--Upload Tutorials-->\n\n            <!-- Upload Previous Year Question's-->\n            <div class=\"tab-pane fade\" id=\"list-exams\" role=\"tabpanel\" aria-labelledby=\"list-messages-list\">\n             \n              <div class=\"card text-center box scroll\" role=\"scroll\">\n                  <div class=\"card-header success-color white-text fixed\">\n                     Add Exams\n                  </div>\n                  <br>\n                  <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"errormsg\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{errormsg}}\n                </div>\n                <div class=\"alert alert-dismissible alert-success\" *ngIf=\"successmsg\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{successmsg}}\n               </div>\n                  <div class=\"card-body topic-box\">   \n                      <!-- Card -->\n                      <form (submit)=\"addExam()\">\n                          <table class=\"table table-hover\">\n                            <tr class=\"table-primary\" >\n                               <th>Exam Name<br/>\n                                  <input type=\"text\" class=\"form-control\" [(ngModel)]=\"examname\" name=\"examname\"></th>\n                                 <th><input class=\"btn btn-primary\" type=\"submit\" value=\"add new\"></th>\n                            </tr>\n                          </table>\n                       </form>\n                  </div>\n              </div>\n            </div> <!-- Upload Previous Year Question's-->\n\n          <!-- Content -->\n        </div>\n        <!-- Second column -->\n      </div>        \n</div>"
+module.exports = "<div class=\"uploadbox\">\n  <div class=\"row\">\n    <!-- First column -->\n    <div class=\"col-sm-3\">\n      <!-- Navigation -->\n      <div class=\"list-group menu\" id=\"list-tab\" role=\"tablist\">\n        <a class=\"list-group-item  success-color center\">Extra Pannel</a>\n        <a class=\"list-group-item list-group-item-action active hoverable\" id=\"add-cat\" data-toggle=\"list\" href=\"#list-admin\" role=\"tab\"\n          (click)=\"resetMsg()\">Admin Users</a>\n        <a class=\"list-group-item list-group-item-action hoverable\" id=\"add-topic\" data-toggle=\"list\" href=\"#list-details\" role=\"tab\"\n          (click)=\"refreshTopics();resetMsg()\">Details</a>\n        <a class=\"list-group-item list-group-item-action hoverable\" id=\"add-exam\" data-toggle=\"list\" href=\"#list-exams\" role=\"tab\"\n          (click)=\"resetMsg()\"></a>\n      </div>\n      <!-- Navigation -->\n    </div>\n    <!-- First column -->\n    <!-- Second column -->\n    <div class=\"col-sm-9\">\n      <!-- Content -->\n      <div class=\"tab-content\" id=\"nav-tabContent\">\n        <div class=\"tab-pane fade show active\" id=\"list-admin\" role=\"tabpanel\">\n          <div class=\"card text-center box scroll\" role=\"scroll\">\n            <div class=\"card-header success-color white-text fixed\">\n              Admin User's\n            </div>\n            <br>\n            <ul class=\"nav nav-tabs nav-justified col-sm-3\">\n              <li class=\"nav-item\">\n                <a class=\"nav-link active \" data-toggle=\"tab\" href=\"#Admins\" role=\"tab\">Admins</a>\n              </li>\n              <li class=\"nav-item\">\n                <a class=\"nav-link\" data-toggle=\"tab\" href=\"#addAdmin\" role=\"tab\">\n                  <i class=\"fa fa-plus\"></i> Add </a>\n              </li>\n            </ul>\n            <div class=\"tab-content card container\">\n              <div class=\"tab-pane fade in show active\" id=\"Admins\" role=\"tabpanel\">\n\n                <div class=\"card-body\">\n                  <table class=\"table table-hover\">\n                    <thead>\n                      <tr class=\"table-active\">\n                        <th scope=\"col\">S.no</th>\n                        <th scope=\"col\">Name</th>\n                        <th scope=\"col\">Degree</th>\n                        <th scope=\"col\">Age</th>\n                      </tr>\n                    </thead>\n                    <tbody>\n                      <tr>\n                        <th scope=\"row\">Active</th>\n                        <td>Column content</td>\n                        <td>Column content</td>\n                        <td>Column content</td>\n                      </tr>\n                    </tbody>\n                  </table>\n                </div>\n              </div>\n              <div class=\"tab-pane fade\" id=\"addAdmin\" role=\"tabpanel\">\n                <div class=\"card-body\">\n                  <!-- Card -->\n                  <div class=\"alert alert-dismissible alert-success\" *ngIf=\"successmsg\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                    {{successmsg}}\n                  </div>\n\n                  <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"errormsg\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                    {{errormsg}}\n                  </div>\n\n                  <form (submit)=\"addAdmin()\">\n                    <table class=\"table\">\n                      <tr class=\"table-primary\">\n                        <th>Admin Id:</th>\n                        <th>\n                          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"cat\" name=\"cat\">\n                        </th>\n                      </tr>\n                      <tr class=\"table-primary\">\n                        <th>Password</th>\n                        <th>\n                          <input type=\"password\" class=\"form-control\" [(ngModel)]=\"cat\" name=\"cat\">\n                        </th>\n                      </tr>\n                      <tr class=\"table-primary\">\n                        <th>confirm-Password</th>\n                        <th>\n                          <input type=\"password\" class=\"form-control\" [(ngModel)]=\"cat\" name=\"cat\">\n                        </th>\n                      </tr>\n                      <tr class=\"table-primary\">\n                        <th colspan=\"2\">\n                          <input class=\"btn btn-primary\" type=\"submit\" value=\"Add Admin\">\n                        </th>\n                      </tr>\n                    </table>\n                  </form>\n                </div>\n              </div>\n              <!-- model-->\n            </div>\n          </div>\n        </div>\n        <!--Upload Tutorials-->\n        <div class=\"tab-pane fade\" id=\"list-topics\" role=\"tabpanel\">\n          <div class=\"card text-center box scroll\" role=\"scroll\">\n            <div class=\"card-header success-color white-text fixed\">\n              Topics\n            </div>\n            <br>\n            <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"errormsg\">\n              <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n              {{errormsg}}\n            </div>\n            <div class=\"alert alert-dismissible alert-success\" *ngIf=\"successmsg\">\n              <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n              {{successmsg}}\n            </div>\n            <div class=\"card-body\">\n              <!-- Card -->\n              <form (submit)=\"addTopic()\">\n                <table class=\"table table-hover\">\n                  <tr class=\"table-primary\">\n                    <th>Choose Category\n                      <br/>\n                      <select class=\"form-control\" [(ngModel)]=\"category\" name=\"category\">\n                        <option *ngFor=\"let category of categories\" value=\"{{category}}\">{{category}}</option>\n                      </select>\n                    </th>\n                    <th>Topic Name\n                      <br/>\n                      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"topic\" name=\"topic\">\n                    </th>\n                    <th>\n                      <input class=\"btn btn-primary\" type=\"submit\" value=\"add new\">\n                    </th>\n                  </tr>\n                </table>\n              </form>\n            </div>\n          </div>\n        </div>\n        <!--Upload Tutorials-->\n\n        <!-- Upload Previous Year Question's-->\n        <div class=\"tab-pane fade\" id=\"list-exams\" role=\"tabpanel\" aria-labelledby=\"list-messages-list\">\n\n          <div class=\"card text-center box scroll\" role=\"scroll\">\n            <div class=\"card-header success-color white-text fixed\">\n              Add Exams\n            </div>\n            <br>\n            <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"errormsg\">\n              <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n              {{errormsg}}\n            </div>\n            <div class=\"alert alert-dismissible alert-success\" *ngIf=\"successmsg\">\n              <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n              {{successmsg}}\n            </div>\n            <div class=\"card-body\">\n              <!-- Card -->\n              <form (submit)=\"addExam()\">\n                <table class=\"table table-hover\">\n                  <tr class=\"table-primary\">\n                    <th>Exam Name\n                      <br/>\n                      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"examname\" name=\"examname\">\n                    </th>\n                    <th>\n                      <input class=\"btn btn-primary\" type=\"submit\" value=\"add new\">\n                    </th>\n                  </tr>\n                </table>\n              </form>\n            </div>\n          </div>\n        </div>\n        <!-- Upload Previous Year Question's-->\n\n        <!-- Content -->\n      </div>\n      <!-- Second column -->\n    </div>\n  </div>"
 
 /***/ }),
 
@@ -484,51 +488,6 @@ var ExtraComponent = /** @class */ (function () {
             });
         }
     };
-    ExtraComponent.prototype.addTopic = function () {
-        var _this = this;
-        this.resetMsg();
-        var data = {
-            category: this.category,
-            topics: { name: this.topic }
-        };
-        if (data.category == undefined || data.category == '')
-            this.errormsg = "please select the category name";
-        else if (this.topic == undefined || this.topic == '')
-            this.errormsg = "please enter the topic name";
-        else {
-            this.qs.addTopic(data).subscribe(function (data) {
-                if (data.success) {
-                    _this.successmsg = data.msg;
-                    _this.topic = '';
-                }
-                else {
-                    _this.errormsg = data.msg;
-                }
-            });
-        }
-    };
-    ExtraComponent.prototype.addExam = function () {
-        var _this = this;
-        this.resetMsg();
-        var data = {
-            examname: this.examname
-        };
-        if (data.examname == undefined || data.examname == '') {
-            this.errormsg = "please enter the exam name";
-            return false;
-        }
-        else {
-            this.es.addExam(data).subscribe(function (data) {
-                if (data.success) {
-                    _this.successmsg = data.msg;
-                    _this.examname = '';
-                }
-                else {
-                    _this.errormsg = data.msg;
-                }
-            });
-        }
-    };
     //=========(reseting messages)=============
     ExtraComponent.prototype.resetMsg = function () {
         this.errormsg = '';
@@ -550,17 +509,126 @@ var ExtraComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/ahome/student-details/student-details.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ".uploadbox{\r\n    padding:30px;\r\n    margin-bottom: 5px;\r\n    height:auto;\r\n  }\r\n  .box{\r\n    -webkit-box-shadow: 0 0 20px 2px rgba(77, 175, 231, 0.5);\r\n            box-shadow: 0 0 20px 2px rgba(77, 175, 231, 0.5);\r\n  }\r\n  .topic-box{\r\n     padding:50px;\r\n     margin:40px;\r\n  }\r\n"
+
+/***/ }),
+
+/***/ "./src/app/components/ahome/student-details/student-details.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"uploadbox\">\n  <div class=\"row\">\n    <!-- First column -->\n    <div class=\"col-sm-3\">\n      <!-- Navigation -->\n      <div class=\"list-group menu\" id=\"list-tab\" role=\"tablist\">\n        <a class=\"list-group-item  success-color center\">Students Details</a>\n        <a class=\"list-group-item list-group-item-action active hoverable\" data-toggle=\"list\" href=\"#list-students\" role=\"tab\">Registered </a>\n        <a class=\"list-group-item list-group-item-action hoverable\" data-toggle=\"list\" href=\"#list-scores\" role=\"tab\" (click)=\"getExamsDetails()\">Scores</a>\n        <a class=\"list-group-item list-group-item-action hoverable\" data-toggle=\"list\" href=\"#list-top\" role=\"tab\">Top Students</a>\n      </div>\n      <!-- Navigation -->\n    </div>\n    <!-- First column -->\n    <!-- Second column -->\n    <div class=\"col-sm-9\">\n      <!-- Content -->\n      <div class=\"tab-content\" id=\"nav-tabContent\">\n        <div class=\"tab-pane fade show active\" id=\"list-students\" role=\"tabpanel\">\n          <div class=\"card text-center box scroll\" role=\"scroll\">\n            <div class=\"card-header success-color white-text fixed\">\n              Registered Students\n            </div>\n            <!-- Card -->\n            <div class=\"card-body\">\n              <table class=\"table table-hover\">\n                <thead>\n                  <tr class=\"table-active\">\n                    <th scope=\"col\">S.no</th>\n                    <th scope=\"col\">Name</th>\n                    <th scope=\"col\">Email</th>\n                    <th scope=\"col\">Gender</th>\n                    <th scope=\"col\">Age</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr *ngFor=\"let user of Users;let i=index\">\n                    <th>{{i+1}}</th>\n                    <th>{{user.name}}</th>\n                    <td>{{user.email}}</td>\n                    <td>{{user.gender}}</td>\n                    <td>{{user.age}}</td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </div>\n          <!-- model-->\n        </div>\n\n        <div class=\"tab-pane fade\" id=\"list-scores\" role=\"tabpanel\">\n          <div class=\"card text-center box scroll\" role=\"scroll\">\n            <div class=\"card-header success-color white-text fixed\">\n              Students Scores\n            </div>\n            <!-- Card -->\n            <div class=\"card-body\">\n              <div class=\"container\">\n                <div class=\"form-group\">\n                  <label for=\"exampleSelect1\">Select Exam</label>\n                  <select class=\"form-control\" (change)=\"changeExam(examval.value)\" #examval>\n                    <option *ngFor=\"let exam of exams\" [value]=\"exam.examname\">{{exam.examname}}</option>\n                  </select>\n                </div>\n              </div>\n              <table class=\"table table-hover\">\n                <thead>\n                  <tr class=\"table-active\">\n                    <th scope=\"col\">S.no</th>\n                    <th scope=\"col\">Name</th>\n                    <th scope=\"col\">Obtained Score </th>\n                    <th scope=\"col\">Total Score</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr *ngFor=\"let result of results;let i=index\">\n                    <th>{{i+1}}</th>\n                    <td>{{result.username}}</td>\n                    <td>{{result.score}}</td>\n                    <td>{{result.Tscore}}</td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </div>\n          <!-- model-->\n        </div>\n\n        <div class=\"tab-pane fade\" id=\"list-top\" role=\"tabpanel\">\n          <div class=\"card text-center box scroll\" role=\"scroll\">\n            <div class=\"card-header success-color white-text fixed\">\n              Top Students\n            </div>\n            <!-- Card -->\n            <div class=\"card-body\">\n              <table class=\"table table-hover\">\n                <thead>\n                  <tr class=\"table-active\">\n                    <th scope=\"col\">S.no</th>\n                    <th scope=\"col\">Name</th>\n                    <th scope=\"col\">Degree</th>\n                    <th scope=\"col\">Age</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr>\n                    <th scope=\"row\">Active</th>\n                    <td>Column content</td>\n                    <td>Column content</td>\n                    <td>Column content</td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </div>\n          <!-- model-->\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/ahome/student-details/student-details.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StudentDetailsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_exam_service__ = __webpack_require__("./src/app/services/exam.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_result_service__ = __webpack_require__("./src/app/services/result.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var StudentDetailsComponent = /** @class */ (function () {
+    function StudentDetailsComponent(as, es, rs) {
+        this.as = as;
+        this.es = es;
+        this.rs = rs;
+        this.Users = [];
+        this.exams = [];
+        this.results = [];
+    }
+    StudentDetailsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.as.getUsers().subscribe(function (data) {
+            if (data.success) {
+                data.users.forEach(function (elmt) {
+                    _this.Users.push(elmt);
+                });
+            }
+        });
+    };
+    StudentDetailsComponent.prototype.getExamsDetails = function () {
+        var _this = this;
+        this.es.getExams().subscribe(function (data) {
+            if (data.success) {
+                _this.exams = data.data;
+                _this.examname = data.data[0].examname;
+                //getexam question 
+                var ename = {
+                    examname: _this.examname
+                };
+                _this.rs.getResults(ename).subscribe(function (data) {
+                    if (data.success) {
+                        _this.showScore = true;
+                        _this.results = data.details;
+                    }
+                });
+            }
+            else {
+                _this.exams = [''];
+            }
+        });
+    };
+    StudentDetailsComponent.prototype.changeExam = function (examval) {
+        var _this = this;
+        this.results.splice(0, this.results.length);
+        this.examname = examval;
+        var ename = {
+            examname: this.examname
+        };
+        this.rs.getResults(ename).subscribe(function (data) {
+            if (data.success) {
+                _this.showScore = true;
+                _this.results = data.details;
+                console.log(_this.results);
+            }
+        });
+    };
+    StudentDetailsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-student-details',
+            template: __webpack_require__("./src/app/components/ahome/student-details/student-details.component.html"),
+            styles: [__webpack_require__("./src/app/components/ahome/student-details/student-details.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_exam_service__["a" /* ExamService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_result_service__["a" /* ResultService */]])
+    ], StudentDetailsComponent);
+    return StudentDetailsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/ahome/upload/upload.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".uploadbox{\r\n    padding:30px;\r\n    margin-bottom: 5px;\r\n    height:auto;\r\n  }\r\n  .box{\r\n    -webkit-box-shadow: 0 0 20px 5px rgba(0,0,0,0.5);\r\n            box-shadow: 0 0 20px 5px rgba(0,0,0,0.5);\r\n  }\r\n  .topic-box{\r\n     padding:50px;\r\n     margin:40px;\r\n  }\r\n\r\n"
+module.exports = ".uploadbox{\r\n    padding:30px;\r\n    margin-bottom: 5px;\r\n    height:auto;\r\n  }\r\n  .box{\r\n    -webkit-box-shadow: 0 0 20px 2px rgba(77, 175, 231, 0.5);\r\n            box-shadow: 0 0 20px 2px rgba(77, 175, 231, 0.5);\r\n  }\r\n  .topic-box{\r\n     padding:50px;\r\n     margin:40px;\r\n  }\r\n  .upper{\r\n  text-transform: uppercase;\r\n}\r\n  .ques-table>thead>tr ,.ques-table>tbody>tr{display: block; display:-ms-grid; display:grid;-ms-grid-columns: .2fr 1fr .2fr .3fr;grid-template-columns: .2fr 1fr .2fr .3fr;}\r\n  .ques-list { display: block; height: 80vh; overflow-y: auto;} "
 
 /***/ }),
 
 /***/ "./src/app/components/ahome/upload/upload.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"uploadbox\">     \n    <div class=\"row\">\n        <!-- First column -->\n        <div class=\"col-3\">\n          <!-- Navigation -->\n          <div class=\"list-group menu\" id=\"list-tab\" role=\"tablist\">\n            <a class=\"list-group-item  success-color center\">Admin Pannel</a>\n            <a class=\"list-group-item list-group-item-action active hoverable\" data-toggle=\"list\" href=\"#list-question\" role=\"tab\" aria-controls=\"home\" (click)=\"refreshCategory();disableStat()\">Exams</a>\n            <a class=\"list-group-item list-group-item-action hoverable\"  data-toggle=\"list\" href=\"#list-examquestion\" role=\"tab\" aria-controls=\"messages\" (click)=\"enableStat()\">Exam Questions</a>\n            <a class=\"list-group-item list-group-item-action hoverable\" data-toggle=\"list\" href=\"#list-pquestions\" role=\"tab\" aria-controls=\"messages\" (click)=\"disableStat()\">Question Papers</a>\n            <a class=\"green accent-4\"></a>\n          </div>\n          <br>\n          <div class=\"list-group menu\" id=\"list-tab\" *ngIf=\"examQuesStat\">\n            <a class=\"list-group-item default-color center\">Statatics</a>\n            <a class=\"list-group-item \" role=\"tab\">Aptitute : {{aptitutelen}} /50</a>\n            <a class=\"list-group-item \">Resoning : {{resoninglen}} /50</a>\n            <a class=\"list-group-item \" >English : {{englen}} /50</a>\n            <a class=\"list-group-item \" >Genral Awareness : {{genlen}} /50</a>\n          </div>\n          <!-- Navigation -->\n        </div>\n        <!-- First column -->\n        <!-- Second column -->\n        <div class=\"col-9\">\n          <!-- Content -->\n    <div class=\"tab-content\" id=\"nav-tabContent\">\n            <!--Upload Tutorials-->\n    <!-- ===============upload exam questions========= -->\n    <div class=\"tab-pane fade show\" id=\"list-examquestion\" role=\"tabpanel\" >\n        <div class=\"card text-center box scroll\" role=\"scroll\">\n            <div class=\"card-header success-color white-text fixed\">\n                Upload Exam Questions\n            </div>\n            <div class=\"card-body\">\n                    <!-- Card -->\n                <div class=\"alert alert-dismissible alert-success\" *ngIf=\"success\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{success}}\n                    </div>\n                      <div class=\"alert alert-dismissible alert-danger\" *ngIf=\"error\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{error}}\n                      </div>\n                      <form (submit)=\"addExamQuestion()\">\n                              <div class=\"form-group\">\n                                <div class=\"row\">\n                                  <div class=\"col-sm-6\">\n                                      <div class=\"form-group\">\n                                          <label for=\"exampleSelect1\">Select Exam</label>\n                                          <select class=\"form-control\" (change)=\"changeExam(examval.value)\" #examval>\n                                            <option *ngFor=\"let exam of exams\"\n                                              [value]=\"exam.examname\">{{exam.examname}}</option>\n                                          </select>\n                                    </div>\n                                </div>\n                            <div class=\"col-sm-6\">\n                                <div class=\"form-group\">\n                                    <label for=\"exampleSelect1\">Select Category Name</label>\n                                        <select class=\"form-control\" [(ngModel)]=\"examcat\" name=\"examcat\">\n                                          <option *ngFor=\"let category of categories\"\n                                            value=\"{{category}}\">{{category}}</option>\n                                          </select>\n                                        </div>\n                                  </div>\n                                </div>\n                            </div>\n\n                            <div class=\"md-form\">\n                                <textarea type=\"text\"class=\"form-control \" rows=\"3\" [(ngModel)]=\"question\" name=\"question\"></textarea>\n                                <label for=\"textareaBasic\">Question</label>\n                            </div>\n                            \n                            <div class=\"form-group\">\n                              <label>Options</label>\n                                <div class=\"row\">\n                                  <div class=\"col-sm-3\">\n                                      <input type=\"text\" class=\"form-control\" placeholder=\"option 1\" [(ngModel)]=\"option1\" name=\"option1\">\n                                  </div>\n                                  <div class=\"col-sm-3\">\n                                      <input type=\"text\" class=\"form-control\" placeholder=\"option 2\" [(ngModel)]=\"option2\" name=\"option2\">\n                                  </div>\n                                  <div class=\"col-sm-3\">\n                                      <input type=\"text\" class=\"form-control\" placeholder=\"option 3\" [(ngModel)]=\"option3\" name=\"option3\">\n                                  </div>\n                                  <div class=\"col-sm-3\">\n                                      <input type=\"text\" class=\"form-control \" placeholder=\"option 4\" [(ngModel)]=\"option4\" name=\"option4\">\n                                  </div>        \n                               </div>\n                            </div>\n\n                            <div class=\"form-group col-sm-3\">\n                                <label>Answer</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"answer\" [(ngModel)]=\"answer\" name=\"answer\">\n                            </div>                        \n                            <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n                        </form>\n                    </div>\n                </div>\n            </div>\n<!--(ends)===============upload exam questions=========(ends) -->\n\n<!-- Content -->\n\n        </div>\n        <!-- Second column -->\n      </div>        \n</div>"
+module.exports = "<div class=\"uploadbox\">\n    <div class=\"row\">\n        <!-- First column -->\n        <div class=\"col-sm-3\">\n            <!-- Navigation -->\n            <div class=\"list-group menu z-depth-5\" id=\"list-tab\" role=\"tablist\">\n                <a class=\"list-group-item success-color center\">Admin Pannel</a>\n\n                <a class=\"list-group-item list-group-item-action active hoverable\" data-toggle=\"list\" href=\"#list-exams\" role=\"tab\" (click)=\"disableStat()\">Exams</a>\n                <a class=\"list-group-item list-group-item-action hoverable\" data-toggle=\"list\" href=\"#list-examquestion\" role=\"tab\" (click)=\"resetMsg();enableStat()\">Exam Questions</a>\n                <a class=\"list-group-item list-group-item-action hoverable\" data-toggle=\"list\" href=\"#list-category\" role=\"tab\" (click)=\"resetMsg();refreshCategory();disableStat()\">Add Category</a>\n                <a class=\"green accent-4\"></a>\n            </div>\n            <br>\n            <div class=\"list-group menu\" id=\"list-tab\" *ngIf=\"examQuesStat\">\n                <a class=\"list-group-item default-color center\">Statatics</a>\n                <a class=\"list-group-item \" role=\"tab\">Aptitute : {{aptitutelen}} /50</a>\n                <a class=\"list-group-item \">Resoning : {{resoninglen}} /50</a>\n                <a class=\"list-group-item \">English : {{englen}} /50</a>\n                <a class=\"list-group-item \">Genral Awareness : {{genlen}} /50</a>\n            </div>\n            <!-- Navigation -->\n        </div>\n        <!-- First column -->\n        <!-- Second column -->\n        <div class=\"col-sm-9\">\n            <!-- Content -->\n            <div class=\"tab-content\" id=\"nav-tabContent\">\n                <!--Upload Tutorials-->\n                <!-- ===============upload exam questions========= -->\n                <div class=\"tab-pane fade show\" id=\"list-examquestion\" role=\"tabpanel\">\n                    <div class=\"card text-center box scroll\" role=\"scroll\">\n                        <div class=\"card-header success-color white-text fixed\">\n                            Exam Questions\n                        </div>\n                        <br>\n                        <ul class=\"nav nav-tabs nav-justified col-sm-3\">\n                            <li class=\"nav-item\">\n                                <a class=\"nav-link active\" data-toggle=\"tab\" href=\"#ExamQuestion\" role=\"tab\" (click)=\"resetMsg()\">Exams</a>\n                            </li>\n                            <li class=\"nav-item\">\n                                <a class=\"nav-link\" data-toggle=\"tab\" href=\"#addExamQuestion\" role=\"tab\" (click)=\"resetMsg()\">\n                                    <i class=\"fa fa-plus\"></i> Add </a>\n                            </li>\n                        </ul>\n\n                        <!-- Tab panels -->\n                        <div class=\"tab-content card\">\n                            <!--Panel 1-->\n                            <div class=\"tab-pane fade in show active\" id=\"ExamQuestion\" role=\"tabpanel\">\n                                <br>\n                                <div class=\"row center container\">\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"form-group\">\n                                            <label for=\"exampleSelect1\">Select Exam</label>\n                                            <select class=\"form-control\" (change)=\"changeExam(exam.value)\" #exam>\n                                                <option *ngFor=\"let exam of exams\" [value]=\"exam.examname\">{{exam.examname}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"form-group\">\n                                            <label for=\"exampleSelect1\">Select Category Name</label>\n                                            <select class=\"form-control\" (change)=\"changeCat(catval.value)\" #catval>\n                                                <option *ngFor=\"let category of categories\" [value]=\"category\">{{category}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                </div>\n                                <br>\n                                <table class=\"table ques-table\">\n                                    <thead>\n                                        <tr class=\"table-primary\">\n                                            <th scope=\"col\">\n                                                <b>No.</b>\n                                            </th>\n                                            <th scope=\"col\">\n                                                <b>Question</b>\n                                            </th>\n                                            <th scope=\"col\">\n                                                <b>\n                                                    <i class=\"fa fa-edit\"></i> Edit</b>\n                                            </th>\n                                            <th scope=\"col\">\n                                                <b>\n                                                    <i class=\"fa fa-trash\"></i> Delete</b>\n                                            </th>\n                                        </tr>\n                                    </thead>\n\n                                    <tbody *ngIf=\"selected == 'aptitute'\" class=\"ques-list\">\n                                        <tr *ngFor=\"let ques of Aptitute;let i =index\">\n                                            <th>{{i+1}}</th>\n                                            <th id=\"cat{{i+1}}\" class=\"upper\">{{ques.question}}</th>\n                                            <th>\n                                                <button class=\"btn btn-outline-primary\" data-toggle=\"modal\" data-target=\"#editModel\" (click)=\"openEditor(i)\">Edit</button>\n                                            </th>\n                                            <th>\n                                                <button class=\"btn btn-outline-danger\" data-toggle=\"modal\" data-target=\"#deleteQuestion\" (click)=\"setID(ques._id)\">delete</button>\n                                            </th>\n                                        </tr>\n                                    </tbody>\n\n                                    <tbody *ngIf=\"selected == 'resoning'\" class=\"ques-list\">\n                                        <tr *ngFor=\"let ques of Resoning;let i =index\">\n                                            <th>{{i+1}}</th>\n                                            <th id=\"cat{{i+1}}\" class=\"upper\">{{ques.question}}</th>\n                                            <th>\n                                                <button class=\"btn btn-outline-primary\" data-toggle=\"modal\" data-target=\"#editModel\" (click)=\"openEditor(i)\">Edit</button>\n                                            </th>\n                                            <th>\n                                                <button class=\"btn btn-outline-danger\" data-toggle=\"modal\" data-target=\"#deleteQuestion\" (click)=\"setID(ques._id)\">delete</button>\n                                            </th>\n                                        </tr>\n                                    </tbody>\n\n                                    <tbody *ngIf=\"selected == 'english'\">\n                                        <tr *ngFor=\"let ques of English;let i =index\">\n                                            <th>{{i+1}}</th>\n                                            <th id=\"cat{{i+1}}\" class=\"upper\">{{ques.question}}</th>\n                                            <th>\n                                                <button class=\"btn btn-outline-primary\" data-toggle=\"modal\" data-target=\"#editModel\" (click)=\"openEditor(i)\">Edit</button>\n                                            </th>\n                                            <th>\n                                                <button class=\"btn btn-outline-danger\" data-toggle=\"modal\" data-target=\"#deleteQuestion\" (click)=\"setID(ques._id)\">delete</button>\n                                            </th>\n                                        </tr>\n                                    </tbody>\n\n                                    <tbody *ngIf=\"selected == 'genral'\">\n                                        <tr *ngFor=\"let ques of Genral;let i =index\">\n                                            <th>{{i+1}}</th>\n                                            <th id=\"cat{{i+1}}\" class=\"upper\">{{ques.question}}</th>\n                                            <th>\n                                                <button class=\"btn btn-outline-primary\" data-toggle=\"modal\" data-target=\"#editModel\" (click)=\"openEditor(i)\">Edit</button>\n                                            </th>\n                                            <th>\n                                                <button class=\"btn btn-outline-danger\" data-toggle=\"modal\" data-target=\"#deleteQuestion\" (click)=\"setID(ques._id)\">delete</button>\n                                            </th>\n                                        </tr>\n                                    </tbody>\n\n                                    <tbody *ngIf=\"selected == 'computer'\">\n                                        <tr *ngFor=\"let ques of Computer;let i =index\">\n                                            <th>{{i+1}}</th>\n                                            <th id=\"cat{{i+1}}\" class=\"upper\">{{ques.question}}</th>\n                                            <th>\n                                                <button class=\"btn btn-outline-primary\" data-toggle=\"modal\" data-target=\"#editModel\" (click)=\"openEditor(i)\">Edit</button>\n                                            </th>\n                                            <th>\n                                                <button class=\"btn btn-outline-danger\" data-toggle=\"modal\" data-target=\"#deleteQuestion\" (click)=\"setID(ques._id)\">delete</button>\n                                            </th>\n                                        </tr>\n                                    </tbody>\n\n                                </table>\n\n                            </div>\n                            <div class=\"tab-pane fade\" id=\"addExamQuestion\" role=\"tabpanel\">\n                                <div class=\"card-body\">\n                                    <!-- Card -->\n                                    <br>\n                                    <div class=\"container\">\n                                        <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"error\">\n                                            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                                            {{error}}\n                                        </div>\n                                        <div class=\"alert alert-dismissible alert-success\" *ngIf=\"success\">\n                                            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                                            {{success}}\n                                        </div>\n                                    </div>\n                                    <br>\n                                    <form (submit)=\"addExamQuestion()\">\n                                        <div class=\"form-group\">\n                                            <div class=\"row\">\n                                                <div class=\"col-sm-6\">\n                                                    <div class=\"form-group\">\n                                                        <label for=\"exampleSelect1\">Select Exam</label>\n                                                        <select class=\"form-control\" (change)=\"changeExam(examval.value)\" #examval>\n                                                            <option *ngFor=\"let exam of exams\" [value]=\"exam.examname\">{{exam.examname}}</option>\n                                                        </select>\n                                                    </div>\n                                                </div>\n                                                <div class=\"col-sm-6\">\n                                                    <div class=\"form-group\">\n                                                        <label for=\"exampleSelect1\">Select Category Name</label>\n                                                        <select class=\"form-control\" [(ngModel)]=\"examcat\" name=\"examcat\">\n                                                            <option *ngFor=\"let category of categories\" value=\"{{category}}\">{{category}}</option>\n                                                        </select>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                        </div>\n\n                                        <div class=\"md-form\">\n                                            <textarea type=\"text\" class=\"form-control \" rows=\"3\" [(ngModel)]=\"question\" name=\"question\"></textarea>\n                                            <label for=\"textareaBasic\">Question</label>\n                                        </div>\n\n                                        <div class=\"form-group\">\n                                            <label>Options</label>\n                                            <div class=\"row\">\n                                                <div class=\"col-sm-3\">\n                                                    <input type=\"text\" class=\"form-control\" placeholder=\"option 1\" [(ngModel)]=\"option1\" name=\"option1\">\n                                                </div>\n                                                <div class=\"col-sm-3\">\n                                                    <input type=\"text\" class=\"form-control\" placeholder=\"option 2\" [(ngModel)]=\"option2\" name=\"option2\">\n                                                </div>\n                                                <div class=\"col-sm-3\">\n                                                    <input type=\"text\" class=\"form-control\" placeholder=\"option 3\" [(ngModel)]=\"option3\" name=\"option3\">\n                                                </div>\n                                                <div class=\"col-sm-3\">\n                                                    <input type=\"text\" class=\"form-control \" placeholder=\"option 4\" [(ngModel)]=\"option4\" name=\"option4\">\n                                                </div>\n                                            </div>\n                                        </div>\n\n                                        <div class=\"form-group col-sm-3\">\n                                            <label>Answer</label>\n                                            <input type=\"text\" class=\"form-control\" placeholder=\"answer\" [(ngModel)]=\"answer\" name=\"answer\">\n                                        </div>\n                                        <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n                                    </form>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <!--(ends)===============upload exam questions=========(ends) -->\n                <!--(start)===============Manage category=========(start) -->\n                <div class=\"tab-pane fade\" id=\"list-category\" role=\"tabpanel\" aria-labelledby=\"list-home-list\">\n                    <div class=\"card text-center box scroll\" role=\"scroll\">\n                        <div class=\"card-header success-color white-text fixed\">\n                            Available Categories\n                        </div>\n                        <br>\n                        <ul class=\"nav nav-tabs nav-justified col-sm-3\">\n                            <li class=\"nav-item\">\n                                <a class=\"nav-link active\" data-toggle=\"tab\" href=\"#cats\" role=\"tab\" (click)=\"resetMsg()\">Exams</a>\n                            </li>\n                            <li class=\"nav-item\">\n                                <a class=\"nav-link\" data-toggle=\"tab\" href=\"#addcat\" role=\"tab\" (click)=\"resetMsg()\">\n                                    <i class=\"fa fa-plus\"></i> Add\n                                </a>\n                            </li>\n                        </ul>\n                        <!-- Tab panels -->\n                        <div class=\"tab-content card\">\n                            <!--Panel 1-->\n                            <div class=\"tab-pane fade in show active\" id=\"cats\" role=\"tabpanel\">\n                                <br>\n                                <table class=\"table\">\n                                    <thead>\n                                        <tr class=\"table-primary\">\n                                            <th scope=\"col\">\n                                                <b>S.No.</b>\n                                            </th>\n                                            <th scope=\"col\">\n                                                <b>Exam Name</b>\n                                            </th>\n                                            <th scope=\"col\">\n                                                <b>\n                                                    <i class=\"fa fa-edit\"></i> Edit</b>\n                                            </th>\n                                            <th scope=\"col\">\n                                                <b>\n                                                    <i class=\"fa fa-trash\"></i> Delete</b>\n                                            </th>\n                                        </tr>\n                                    </thead>\n                                    <tbody>\n                                        <tr *ngFor=\"let category of categories;let i =index\">\n                                            <th>{{i+1}}</th>\n                                            <th id=\"cat{{i+1}}\" class=\"upper\">{{category}}</th>\n                                            <th>\n                                                <button class=\"btn btn-outline-primary\" data-toggle=\"modal\" data-target=\"#editCat\" (click)=\"setCat(category)\">Edit</button>\n                                            </th>\n                                            <th>\n                                                <button class=\"btn btn-outline-danger\" data-toggle=\"modal\" data-target=\"#deleteCat\" (click)=\"setCat(category)\">delete</button>\n                                            </th>\n                                        </tr>\n                                    </tbody>\n                                </table>\n                            </div>\n                            <div class=\"tab-pane fade\" id=\"addcat\" role=\"tabpanel\">\n                                <div class=\"card-body topic-box\">\n                                    <!-- Card -->\n                                    <br>\n                                    <div class=\"container\">\n                                        <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"error\">\n                                            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                                            {{error}}\n                                        </div>\n                                        <div class=\"alert alert-dismissible alert-success\" *ngIf=\"success\">\n                                            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                                            {{success}}\n                                        </div>\n                                    </div>\n                                    <br>\n                                    <form (submit)=\"addCategory()\">\n                                        <table class=\"table table-hover\">\n                                            <tr class=\"table-primary\">\n                                                <th>Category Name\n                                                    <br/>\n                                                    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"cat\" name=\"cat\">\n                                                </th>\n                                                <th>\n                                                    <input class=\"btn btn-primary\" type=\"submit\" value=\"add new\">\n                                                </th>\n                                            </tr>\n                                        </table>\n                                    </form>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <!-- add exmas-->\n                <div class=\"tab-pane fade show active\" id=\"list-exams\" role=\"tabpanel\">\n\n                    <div class=\"card text-center box scroll\" role=\"scroll\">\n                        <div class=\"card-header success-color white-text fixed\">\n                            Add Exams\n                        </div>\n                        <br>\n                        <ul class=\"nav nav-tabs nav-justified col-sm-3\">\n                            <li class=\"nav-item\">\n                                <a class=\"nav-link active\" data-toggle=\"tab\" href=\"#exams\" role=\"tab\" (click)=\"resetMsg()\">Exams</a>\n                            </li>\n                            <li class=\"nav-item\">\n                                <a class=\"nav-link\" data-toggle=\"tab\" href=\"#addexam\" role=\"tab\" (click)=\"resetMsg()\">\n                                    <i class=\"fa fa-plus\"></i> Add\n                                </a>\n                            </li>\n                        </ul>\n                        <!-- Tab panels -->\n                        <div class=\"tab-content card\">\n                            <!--Panel 1-->\n                            <div class=\"tab-pane fade in show active\" id=\"exams\" role=\"tabpanel\">\n                                <br>\n                                <table class=\"table\">\n                                    <thead>\n                                        <tr class=\"table-primary\">\n                                            <th scope=\"col\">\n                                                <b>No.</b>\n                                            </th>\n                                            <th scope=\"col\">\n                                                <b>Exam Name</b>\n                                            </th>\n                                            <th scope=\"col\">\n                                                <b>\n                                                    <i class=\"fa fa-edit\"></i> Edit</b>\n                                            </th>\n                                            <th scope=\"col\">\n                                                <b>\n                                                    <i class=\"fa fa-trash\"></i> Delete</b>\n                                            </th>\n                                        </tr>\n                                    </thead>\n                                    <tbody>\n                                        <tr *ngFor=\"let exam of exams;let i =index\">\n                                            <th>{{i+1}}</th>\n                                            <th>{{exam.examname}}</th>\n                                            <th>\n                                                <button class=\"btn btn-outline-primary\" data-toggle=\"modal\" data-target=\"#editExam\" (click)=\"setExamName(exam.examname)\">Edit</button>\n                                            </th>\n                                            <th>\n                                                <button class=\"btn btn-outline-danger\" data-toggle=\"modal\" data-target=\"#deleteExam\" (click)=\"setExamName(exam.examname)\">delete</button>\n                                            </th>\n                                        </tr>\n                                    </tbody>\n                                </table>\n                            </div>\n                            <!--/.Panel 1-->\n                            <!--Panel 2-->\n                            <div class=\"tab-pane fade\" id=\"addexam\" role=\"tabpanel\">\n                                <br>\n                                <br>\n                                <div class=\"container\">\n                                    <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"error\">\n                                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                                        {{error}}\n                                    </div>\n                                    <div class=\"alert alert-dismissible alert-success\" *ngIf=\"success\">\n                                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                                        {{success}}\n                                    </div>\n                                </div>\n                                <br>\n                                <div class=\"card-body \">\n                                    <!-- Card -->\n                                    <form (submit)=\"addExam()\">\n                                        <table class=\"table table-hover\">\n                                            <tr class=\"table-primary\">\n                                                <th>Exam Name\n                                                    <br/>\n                                                    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"examname\" name=\"examname\">\n                                                </th>\n                                                <th>\n                                                    <input class=\"btn btn-primary\" type=\"submit\" value=\"add new\">\n                                                </th>\n                                            </tr>\n                                        </table>\n                                    </form>\n                                </div>\n                            </div>\n                            <!--/.Panel 2-->\n                        </div>\n                    </div>\n                </div>\n                <!-- add exams->\n<!-- Content -->\n\n            </div>\n            <!-- Second column -->\n        </div>\n    </div>\n\n    <!-- ===edit model ==-->\n    <div class=\"modal fade\" id=\"editModel\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\" *ngIf=\"current\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header text-center\">\n                    <h4 class=\"modal-title w-100 font-weight-bold\">Edit Question</h4>\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"clearAll()\">\n                        <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                </div>\n                <br>\n                <div class=\"container\">\n                    <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"error\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{error}}\n                    </div>\n                    <div class=\"alert alert-dismissible alert-success\" *ngIf=\"success\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{success}}\n                    </div>\n                </div>\n                <br>\n                <form (submit)=\"updateQuestion()\">\n                    <div class=\"modal-body mx-3\">\n                        <div class=\"form-group \">\n                            <label>Question</label>\n                            <textarea class=\"form-control\" id=\"exampleTextarea\" rows=\"3\" [(ngModel)]=\"current.question\" name=\"current.question\">\n                           \n                        </textarea>\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label>Options</label>\n                            <div class=\"row\">\n                                <input type=\"text\" class=\"form-control col-sm-3\" [(ngModel)]=\"option1\" name=\"option1\">\n                                <input type=\"text\" class=\"form-control col-sm-3\" [(ngModel)]=\"option2\" name=\"option2\">\n                                <input type=\"text\" class=\"form-control col-sm-3\" [(ngModel)]=\"option3\" name=\"option3\">\n                                <input type=\"text\" class=\"form-control col-sm-3\" [(ngModel)]=\"option4\" name=\"option4\">\n                            </div>\n                        </div>\n                        <div class=\"form-group col-sm-5\">\n                            <label>Answer</label>\n                            <input type=\"text\" class=\"form-control\" [(ngModel)]=\"current.answer\" name=\"current.answerquestion\">\n                        </div>\n                    </div>\n                    <div class=\"modal-footer d-flex justify-content-center\">\n                        <button class=\"btn btn-default\">Update</button>\n                    </div>\n                </form>\n            </div>\n        </div>\n    </div>\n\n    <!---=============(edit exam names)=======-->\n    <div class=\"modal fade\" id=\"editExam\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\" *ngIf=\"newExamName\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header text-center\">\n                    <h4 class=\"modal-title w-100 font-weight-bold\">Edit Exam Name</h4>\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                        <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                </div>\n                <br>\n                <div class=\"container\">\n                    <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"error\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{error}}\n                    </div>\n                    <div class=\"alert alert-dismissible alert-success\" *ngIf=\"success\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{success}}\n                    </div>\n                </div>\n                <br>\n                <div class=\"form-group col-sm-6 center\">\n\n                    <label>Exam Name</label>\n                    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"newExamName\" name=\"newExamName\">\n\n                </div>\n                <div class=\"modal-footer d-flex justify-content-center\">\n                    <button class=\"btn btn-default\" (click)=\"updateExam()\">Update</button>\n                </div>\n            </div>\n        </div>\n    </div>\n    <!---=============(edit exam names)=======-->\n\n    <!---=============(edit category names)=======-->\n    <div class=\"modal fade\" id=\"editCat\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\" *ngIf=\"newCatName\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header text-center\">\n                    <h4 class=\"modal-title w-100 font-weight-bold\">Edit Category Name</h4>\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                        <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                </div>\n                <br>\n                <div class=\"container\">\n                    <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"error\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{error}}\n                    </div>\n                    <div class=\"alert alert-dismissible alert-success\" *ngIf=\"success\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{success}}\n                    </div>\n                </div>\n                <br>\n                <div class=\"form-group col-sm-6\">\n                    <label>Category Name</label>\n                    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"newCatName\" name=\"newCatName\">\n                </div>\n                <div class=\"modal-footer d-flex justify-content-center\">\n                    <button class=\"btn btn-default\" (click)=\"updateCat()\">Update</button>\n                </div>\n            </div>\n        </div>\n    </div>\n    <!-- -=============(edit category names)======= -->\n    <!--===============(delete model)==============-->\n    <div class=\"modal fade\" id=\"deleteExam\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\">\n        <div class=\"modal-dialog  modal-notify modal-danger\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header center\">\n                    <p class=\"heading \">\n                        <strong>Are You Sure </strong>\n                    </p>\n\n                </div>\n                <br>\n                <div class=\"container\">\n                    <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"error\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{error}}\n                    </div>\n                    <div class=\"alert alert-dismissible alert-success\" *ngIf=\"success\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{success}}\n                    </div>\n                </div>\n                <br>\n                <!--Footer-->\n                <div class=\"modal-footer flex-center\">\n                    <button class=\"btn btn-danger\" (click)=\"deleteExam()\">Ok</button>\n                    <button class=\"btn btn-outline-danger waves-effect\" data-dismiss=\"modal\">Cancel</button>\n                </div>\n            </div>\n            <!--/.Content-->\n        </div>\n    </div>\n\n    <!--==============(question delete)=============-->\n    <div class=\"modal fade\" id=\"deleteQuestion\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\">\n        <div class=\"modal-dialog  modal-notify modal-danger\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header center\">\n                    <p class=\"heading\">\n                        <strong>Are You Sure </strong>\n                    </p>\n\n                </div>\n                <br>\n                <div class=\"container\">\n                    <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"error\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{error}}\n                    </div>\n                    <div class=\"alert alert-dismissible alert-success\" *ngIf=\"success\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{success}}\n                    </div>\n                </div>\n                <br>\n                <!--Footer-->\n                <div class=\"modal-footer flex-center\">\n                    <button class=\"btn btn-danger\" (click)=\"deleteQuestion()\">Ok</button>\n                    <button class=\"btn btn-outline-danger waves-effect\" data-dismiss=\"modal\">Cancel</button>\n                </div>\n            </div>\n            <!--/.Content-->\n        </div>\n    </div>\n\n    <!--===============(category delete)==============-->\n    <div class=\"modal fade\" id=\"deleteCat\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\">\n        <div class=\"modal-dialog  modal-notify modal-danger\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header center\">\n                    <p class=\"heading \">\n                        <strong>Are You Sure </strong>\n                    </p>\n\n                </div>\n                <br>\n                <div class=\"container\">\n                    <div class=\"alert alert-dismissible alert-danger animated bounce\" *ngIf=\"error\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{error}}\n                    </div>\n                    <div class=\"alert alert-dismissible alert-success\" *ngIf=\"success\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n                        {{success}}\n                    </div>\n                </div>\n                <br>\n                <!--Footer-->\n                <div class=\"modal-footer flex-center\">\n                    <button class=\"btn btn-danger\" (click)=\"deleteCat()\">Ok</button>\n                    <button class=\"btn btn-outline-danger waves-effect\" data-dismiss=\"modal\">Cancel</button>\n                </div>\n            </div>\n            <!--/.Content-->\n        </div>\n    </div>"
 
 /***/ }),
 
@@ -585,7 +653,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var UploadComponent = /** @class */ (function () {
-    //==============(Exam question variables)==============//
     function UploadComponent(qs, es) {
         var _this = this;
         this.qs = qs;
@@ -594,11 +661,18 @@ var UploadComponent = /** @class */ (function () {
         this.Aptitute = [];
         this.Resoning = [];
         this.English = [];
+        this.Genral = [];
+        this.Computer = [];
+        //===========(message)======================//
+        this.success = '';
+        this.error = '';
         this.aptitutelen = 5;
         this.resoninglen = 10;
         this.englen = 3;
         this.genlen = 24;
         this.exams = [];
+        this.newCatName = '';
+        this.newExamName = '';
         this.resetMsg();
         this.qs.getCategory().subscribe(function (data) {
             if (data.success) {
@@ -617,30 +691,78 @@ var UploadComponent = /** @class */ (function () {
             if (data.success) {
                 _this.exams = data.data;
                 _this.examname = data.data[0].examname;
+                //getexam question 
+                var ename = {
+                    examname: _this.examname
+                };
+                _this.es.getExamQuestion(ename).subscribe(function (data) {
+                    if (data.success) {
+                        data.data.forEach(function (elmt) {
+                            if (elmt.category == "aptitute") {
+                                _this.Aptitute.push(elmt);
+                            }
+                            else if (elmt.category == "resoning") {
+                                _this.Resoning.push(elmt);
+                            }
+                            else if (elmt.category == "english") {
+                                _this.English.push(elmt);
+                            }
+                            else if (elmt.category == "genralawareness") {
+                                _this.Genral.push(elmt);
+                            }
+                            else if (elmt.category == "computer") {
+                                _this.Computer.push(elmt);
+                            }
+                        });
+                    }
+                });
             }
             else {
                 _this.exams = [''];
             }
         });
+        this.selected = "resoning";
     };
     //===========(question upload methods)====================//
-    UploadComponent.prototype.changeCategory = function (value) {
+    UploadComponent.prototype.addCategory = function () {
         var _this = this;
+        this.resetMsg();
+        var data = {
+            category: this.cat
+        };
+        if (data.category == undefined || data.category == '')
+            this.error = "please enter the category name";
+        else {
+            this.qs.addCategory(data).subscribe(function (data) {
+                if (data.success) {
+                    _this.success = data.msg;
+                    _this.cat = '';
+                }
+                else {
+                    _this.error = data.msg;
+                }
+            });
+        }
+    };
+    UploadComponent.prototype.changeCategory = function (value) {
         this.resetMsg();
         this.chapters = [''];
         this.category = value;
         var catdata = {
             category: this.category
         };
-        this.qs.getTopics(catdata).subscribe(function (data) {
-            if (data.success) {
-                _this.chapters = data.data.topics;
-            }
-            else {
-                //  this.setError(data.msg);
-                _this.chapters = [''];
-            }
-        });
+    };
+    UploadComponent.prototype.changeCat = function (value) {
+        if (value == 'aptitute')
+            this.selected = 'aptitute';
+        else if (value == 'resoning')
+            this.selected = 'resoning';
+        else if (value == 'english')
+            this.selected = 'english';
+        else if (value == 'genralawareness')
+            this.selected = 'genral';
+        else if (value == 'computer')
+            this.selected = 'computer';
     };
     //refreshing categories list
     UploadComponent.prototype.refreshCategory = function () {
@@ -663,50 +785,6 @@ var UploadComponent = /** @class */ (function () {
         else if (value == "English")
             return this.English;
     };
-    UploadComponent.prototype.onQuesSubmit = function () {
-        var _this = this;
-        this.resetMsg();
-        var question = {
-            question: this.question,
-            options: [this.option1, this.option2, this.option3, this.option4],
-            answer: this.answer,
-            category: this.category,
-            topic: this.topic
-        };
-        if (this.topic == undefined || this.topic == '') {
-            this.setError("please select the topic name");
-            return false;
-        }
-        else if (question.question == undefined || question.answer == undefined) {
-            this.error = "please fill all the fileds ";
-            return false;
-        }
-        else if (question.question == undefined || question.question == '') {
-            this.error = "please fill the Question fileds ";
-            return false;
-        }
-        else if (question.options[0] == undefined || question.options[1] == undefined || question.options[3] == undefined || question.options[3] == undefined) {
-            this.error = "please fill all the Options fileds ";
-            return false;
-        }
-        else if (question.answer == undefined || question.answer == '') {
-            this.error = "please fill  the Answer fileds ";
-            return false;
-        }
-        else {
-            this.qs.addQuestion(question).subscribe(function (data) {
-                if (data.success) {
-                    _this.success = data.msg;
-                    _this.clearAll();
-                }
-                else {
-                    _this.error = data.msg;
-                    return;
-                }
-            });
-        }
-    };
-    //===========(question upload methods)====================//
     //===========(Exam question upload methods)======================//
     UploadComponent.prototype.enableStat = function () {
         this.examQuesStat = true;
@@ -718,6 +796,9 @@ var UploadComponent = /** @class */ (function () {
     };
     UploadComponent.prototype.changeExam = function (value) {
         this.examname = value;
+        console.log(value);
+        this.emptyAllQuestion();
+        this.getQuestions();
         this.populateQuestionNumber();
     };
     UploadComponent.prototype.addExamQuestion = function () {
@@ -726,7 +807,7 @@ var UploadComponent = /** @class */ (function () {
         var examQuestion = {
             examname: this.examname,
             questions: {
-                question: this.question,
+                question: this.question.trim(),
                 options: [this.option1.trim(), this.option2.trim(), this.option3.trim(), this.option4.trim()],
                 answer: this.answer.trim(),
                 category: this.examcat
@@ -766,16 +847,42 @@ var UploadComponent = /** @class */ (function () {
             });
         }
     };
+    //get exam questions
+    UploadComponent.prototype.getQuestions = function () {
+        var _this = this;
+        var ename = {
+            examname: this.examname
+        };
+        this.es.getExamQuestion(ename).subscribe(function (data) {
+            if (data.success) {
+                data.data.forEach(function (elmt) {
+                    if (elmt.category == "aptitute") {
+                        _this.Aptitute.push(elmt);
+                    }
+                    else if (elmt.category == "resoning") {
+                        _this.Resoning.push(elmt);
+                    }
+                    else if (elmt.category == "english") {
+                        _this.English.push(elmt);
+                    }
+                    else if (elmt.category == "genralawareness") {
+                        _this.Genral.push(elmt);
+                    }
+                    else if (elmt.category == "computer") {
+                        _this.Computer.push(elmt);
+                    }
+                });
+            }
+        });
+    };
     //number of question uploaded to particular exam
     UploadComponent.prototype.populateQuestionNumber = function () {
         var _this = this;
-        console.log(this.examname);
         var ename = {
             examname: this.examname
         };
         this.es.getExamQuestionStat(ename).subscribe(function (data) {
             if (data.success) {
-                console.log(data);
                 _this.aptitutelen = data.data.aptitute;
                 _this.resoninglen = data.data.resoning;
                 _this.englen = data.data.english;
@@ -784,6 +891,175 @@ var UploadComponent = /** @class */ (function () {
         });
     };
     //===========(Exam question upload methods)======================//
+    //===========(Adding exams )====================================//
+    UploadComponent.prototype.addExam = function () {
+        var _this = this;
+        this.resetMsg();
+        var data = {
+            examname: this.examname
+        };
+        if (data.examname == undefined || data.examname == '') {
+            this.error = "please enter the exam name";
+            return false;
+        }
+        else {
+            this.es.addExam(data).subscribe(function (data) {
+                if (data.success) {
+                    _this.success = data.msg;
+                    _this.examname = '';
+                }
+                else {
+                    _this.error = data.msg;
+                }
+            });
+        }
+    };
+    //===========(Adding exams )====================================//
+    UploadComponent.prototype.openEditor = function (index) {
+        if (this.selected == "aptitute") {
+            this.current = this.Aptitute[index];
+        }
+        else if (this.selected == "resoning") {
+            this.current = this.Resoning[index];
+        }
+        else if (this.selected == 'english') {
+            this.current = this.English[index];
+        }
+        else if (this.selected == 'genralawareness') {
+            this.current = this.Genral[index];
+        }
+        else if (this.selected == 'computer') {
+            this.current = this.Computer[index];
+        }
+        this.option1 = this.current.options[0];
+        this.option2 = this.current.options[1];
+        this.option3 = this.current.options[2];
+        this.option4 = this.current.options[3];
+    };
+    //======(update question)==================//
+    UploadComponent.prototype.updateQuestion = function () {
+        var _this = this;
+        this.resetMsg();
+        var ques = {
+            QID: this.current._id,
+            examname: this.examname,
+            questions: {
+                question: this.current.question,
+                answer: this.current.answer,
+                category: this.current.category,
+                options: [this.option1, this.option2, this.option3, this.option4]
+            }
+        };
+        this.es.updateQues(ques).subscribe(function (data) {
+            if (data.success) {
+                _this.success = data.msg;
+                _this.clearAll();
+            }
+            else {
+                _this.error = data.msg;
+            }
+        });
+    };
+    //======(update question)==================//
+    UploadComponent.prototype.setCat = function (cat) {
+        this.currentCatName = cat;
+        this.newCatName = cat;
+    };
+    UploadComponent.prototype.setExamName = function (exam) {
+        this.currentExamName = exam;
+        this.newExamName = exam;
+    };
+    //update cat
+    UploadComponent.prototype.updateCat = function () {
+        var _this = this;
+        this.resetMsg();
+        var newCat = {
+            oldCat: this.currentCatName,
+            newCat: this.newCatName
+        };
+        this.qs.updateCategory(newCat).subscribe(function (data) {
+            if (data.success) {
+                _this.refreshCategory();
+                _this.success = data.msg;
+            }
+            else {
+                _this.error = data.msg;
+            }
+        });
+    };
+    UploadComponent.prototype.updateExam = function () {
+        var _this = this;
+        this.resetMsg();
+        var newExam = {
+            oldExamName: this.currentExamName,
+            newExamName: this.newExamName
+        };
+        this.es.updateExam(newExam).subscribe(function (data) {
+            if (data.success) {
+                _this.currentCatName = '';
+                _this.success = data.msg;
+            }
+            else {
+                _this.error = data.msg;
+            }
+        });
+    };
+    //deleteing category
+    UploadComponent.prototype.deleteCat = function () {
+        var _this = this;
+        this.resetMsg();
+        var cat = {
+            category: this.currentCatName
+        };
+        this.qs.deleteCategory(cat).subscribe(function (data) {
+            if (data.success) {
+                _this.currentExamName = '';
+                _this.success = data.msg;
+                _this.refreshCategory();
+            }
+            else {
+                _this.error = data.msg;
+            }
+        });
+    };
+    //deleteing exam
+    UploadComponent.prototype.deleteExam = function () {
+        var _this = this;
+        this.resetMsg();
+        var examname = {
+            examname: this.currentExamName
+        };
+        this.es.deleteExam(examname).subscribe(function (data) {
+            if (data.success) {
+                _this.currentExamName = '';
+                _this.success = data.msg;
+            }
+            else {
+                _this.error = data.msg;
+            }
+        });
+    };
+    //delete questions
+    UploadComponent.prototype.setID = function (val) {
+        this.ques_id = val;
+    };
+    UploadComponent.prototype.deleteQuestion = function () {
+        var _this = this;
+        var examQues = {
+            examname: this.examname,
+            QID: this.ques_id
+        };
+        this.es.deleteExamQuestion(examQues).subscribe(function (data) {
+            if (data.success) {
+                _this.ques_id = '';
+                _this.success = data.msg;
+            }
+            else {
+                _this.error = data.msg;
+            }
+        });
+    };
+    //delete questions
     UploadComponent.prototype.clearAll = function () {
         this.question = '';
         this.option1 = '';
@@ -791,7 +1067,6 @@ var UploadComponent = /** @class */ (function () {
         this.option3 = '';
         this.option4 = '';
         this.answer = '';
-        this.topic = null;
     };
     UploadComponent.prototype.resetMsg = function () {
         this.error = '';
@@ -802,6 +1077,13 @@ var UploadComponent = /** @class */ (function () {
     };
     UploadComponent.prototype.setSuccess = function (msg) {
         this.success = msg;
+    };
+    UploadComponent.prototype.emptyAllQuestion = function () {
+        this.Aptitute.splice(0, this.Aptitute.length);
+        this.Resoning.splice(0, this.Resoning.length);
+        this.English.splice(0, this.English.length);
+        this.Genral.splice(0, this.Genral.length);
+        this.Computer.splice(0, this.Computer.length);
     };
     UploadComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -1057,14 +1339,14 @@ var ExamboardComponent = /** @class */ (function () {
 /***/ "./src/app/components/examboard/examdash/examdash.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".exampage{\r\n    height:94vh;\r\n    background: #ccc;\r\n}\r\n.section1{\r\n}\r\n.header{\r\n   height:15vh;\r\n   background: #0bf;\r\n   text-align: center;\r\n}\r\n.header>h2{\r\n    font-weight: bold;\r\n    font-size:2em;\r\n}\r\n.body{\r\n    height:70vh;\r\n}\r\n.footer{\r\n    height:10vh;\r\n}\r\n.page{\r\n    display:-ms-grid;\r\n    display:grid;\r\n    -ms-grid-columns: 1fr .4fr;\r\n        grid-template-columns: 1fr .4fr;\r\n}\r\n.catlinks{\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n}\r\nsections>li{\r\n    margin:10px !important;\r\n    padding:10px !important;\r\n}\r\n.questionbox{\r\n    overflow-y:auto;\r\n    padding:10px;\r\n    background: #fff;\r\n    color:#000;\r\n    height:70vh;;\r\n}\r\n.option{\r\n    height:auto;\r\n    border-top: 2px solid #0bf;\r\n    display:-webkit-box;\r\n    display:-ms-flexbox;\r\n    display:flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: row;\r\n            flex-direction: row;\r\n    -ms-flex-pack: distribute;\r\n        justify-content: space-around;\r\n    background: #fff;\r\n}\r\n.nav-item>a{\r\n    color:#fff !important;\r\n}\r\n.active{\r\n    background: inherit  !important;\r\n    color:#000 !important;\r\n}\r\n.radios{\r\n    padding:3px;\r\n    margin-left: 20px;\r\n}\r\n.radios>span{\r\n    margin-left: 10px;\r\n}\r\n.question{\r\n    margin-bottom: 10px;\r\n}\r\n.option-pane{\r\n    height:94vh;\r\n    background: #0bf;\r\n}\r\n.submitbox{\r\n    position:absolute;\r\n    background: rgba(0,0,0,0.5);\r\n    display:block;\r\n}\r\n.message{\r\n    text-align: center;\r\n    padding:20px;\r\n}\r\n.timer>h4{\r\n    display:inline;\r\n}\r\ntime{\r\n    margin-left:8px;\r\n    font-size: 1.4em;\r\n    letter-spacing: 5px;\r\n    font-weight: bold;\r\n}\r\n.quetion-no{\r\n    margin:0 5px ;\r\n    padding:5px;\r\n    background:#fff;\r\n    height:50vh;\r\n    overflow-y: auto;\r\n}\r\n.qnum{\r\n    border:1px solid #222;\r\n    border-radius: 50%;\r\n    width:40px;\r\n    height:40px;\r\n    text-align: center;\r\n    background: #0bf;\r\n}\r\n.qnum:hover{\r\n    border:2px solid #ccc;\r\n    cursor: pointer;\r\n}\r\n.qnum>label{\r\n    margin-top:5px;\r\n    font-weight: bold;\r\n    color:#fff;\r\n}\r\n.review{\r\n    background:#fb0;\r\n}\r\n.visited{\r\n    background:#f00;\r\n    color:#fff;\r\n}\r\n.answered{\r\n    background:#0f0;\r\n    color:#fff;\r\n}\r\n.flex{\r\n    display:-ms-grid;\r\n    display:grid;\r\n    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;\r\n        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;\r\n    grid-column-gap: 10px;\r\n    grid-row-gap: 20px;\r\n}\r\n.avatar {\r\n    vertical-align: middle;\r\n    width: 100px;\r\n    height: 100px;\r\n    border-radius: 50%;\r\n    border: 1px solid #fff;\r\n    margin-top:10px;\r\n    margin-left:30px;\r\n}\r\n.userinfo{\r\n  color:#fff;\r\n  display:-webkit-box;\r\n  display:-ms-flexbox;\r\n  display:flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: row;\r\n          flex-direction: row;\r\n  -webkit-box-pack: justify;\r\n      -ms-flex-pack: justify;\r\n          justify-content: space-between;\r\n}\r\n.data{\r\n    margin-top:20px;\r\n}\r\n.hideQ{\r\n    display:none;\r\n}\r\n.showQ{\r\n    display:block;\r\n}\r\n@media (max-width:800px), screen and (orientation: portrait){\r\n    \r\n    .questionbox{ height:auto;}\r\n    .body{\r\n        height:auto;\r\n    }\r\n}\r\n@media (max-width:600px), screen and (orientation: portrait){\r\n    \r\n    .quetion-no{\r\n        display:none;\r\n    }\r\n    .header{\r\n        height:auto;\r\n    }\r\n    .body{\r\n        height: auto;\r\n    }\r\n    .exampage{\r\n        height:100%;\r\n        overflow: hidden;\r\n    }\r\n    .avatar{\r\n    }\r\n    .data{\r\n        display:-ms-grid;\r\n        display:grid;\r\n        -ms-grid-columns: 1fr 1fr;\r\n            grid-template-columns: 1fr 1fr;\r\n    }\r\n    .page{\r\n        -ms-grid-columns: 1fr;\r\n            grid-template-columns: 1fr;\r\n    }\r\n}"
+module.exports = ".exampage{\r\n    height:94vh;\r\n    background: #ccc;\r\n}\r\n.section1{\r\n}\r\n.header{\r\n   height:15vh;\r\n   background: #0bf;\r\n   text-align: center;\r\n}\r\n.header>h2{\r\n    font-weight: bold;\r\n    font-size:2em;\r\n}\r\n.body{\r\n    height:70vh;\r\n}\r\n.footer{\r\n    height:10vh;\r\n}\r\n.page{\r\n    display:-ms-grid;\r\n    display:grid;\r\n    -ms-grid-columns: 1fr .4fr;\r\n        grid-template-columns: 1fr .4fr;\r\n}\r\n.catlinks{\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n}\r\nsections>li{\r\n    margin:10px !important;\r\n    padding:10px !important;\r\n}\r\n.questionbox{\r\n    overflow-y:auto;\r\n    padding:10px;\r\n    background: #fff;\r\n    color:#000;\r\n    height:70vh;;\r\n}\r\n.option{\r\n    height:auto;\r\n    border-top: 2px solid #0bf;\r\n    display:-webkit-box;\r\n    display:-ms-flexbox;\r\n    display:flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: row;\r\n            flex-direction: row;\r\n    -ms-flex-pack: distribute;\r\n        justify-content: space-around;\r\n    background: #fff;\r\n}\r\n.nav-item>a{\r\n    color:#fff !important;\r\n}\r\n.active{\r\n    background: inherit  !important;\r\n    color:#000 !important;\r\n}\r\n.radios{\r\n    padding:3px;\r\n    margin-left: 20px;\r\n}\r\n.radios>span{\r\n    margin-left: 10px;\r\n}\r\n.question{\r\n    margin-bottom: 10px;\r\n}\r\n.option-pane{\r\n    height:94vh;\r\n    background: #0bf;\r\n}\r\n.submitbox{\r\n    position:absolute;\r\n    background: rgba(0,0,0,0.5);\r\n    display:block;\r\n}\r\n.message{\r\n    text-align: center;\r\n    padding:20px;\r\n}\r\n.timer>h4{\r\n    display:inline;\r\n    font-weight: bold;\r\n}\r\ntime{\r\n    margin-left:8px;\r\n    font-size: 1.4em;\r\n    letter-spacing: 5px;\r\n    font-weight: bold;\r\n}\r\n.quetion-no{\r\n    margin:0 5px ;\r\n    padding:5px;\r\n    background:#fff;\r\n    height:50vh;\r\n    overflow-y: auto;\r\n}\r\n.qnum{\r\n    border:1px solid #222;\r\n    border-radius: 50%;\r\n    width:40px;\r\n    height:40px;\r\n    text-align: center;\r\n    background: #0bf;\r\n}\r\n.qnum:hover{\r\n    border:2px solid #ccc;\r\n    cursor: pointer;\r\n}\r\n.qnum>label{\r\n    margin-top:5px;\r\n    font-weight: bold;\r\n    color:#fff;\r\n}\r\n.review{\r\n    background:#fb0;\r\n}\r\n.visited{\r\n    background:#f00;\r\n    color:#fff;\r\n}\r\n.answered{\r\n    background:#0f0;\r\n    color:#fff;\r\n}\r\n.flex{\r\n    display:-ms-grid;\r\n    display:grid;\r\n    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;\r\n        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;\r\n    grid-column-gap: 10px;\r\n    grid-row-gap: 20px;\r\n}\r\n.avatar {\r\n    vertical-align: middle;\r\n    width: 100px;\r\n    height: 100px;\r\n    border-radius: 50%;\r\n    border: 1px solid #fff;\r\n    margin-top:10px;\r\n    margin-left:30px;\r\n}\r\n.userinfo{\r\n  color:#fff;\r\n  display:-webkit-box;\r\n  display:-ms-flexbox;\r\n  display:flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: row;\r\n          flex-direction: row;\r\n  -webkit-box-pack: justify;\r\n      -ms-flex-pack: justify;\r\n          justify-content: space-between;\r\n}\r\n.data{\r\n    margin-top:20px;\r\n}\r\n.hideQ{\r\n    display:none;\r\n}\r\n.showQ{\r\n    display:block;\r\n}\r\n@media (max-width:800px), screen and (orientation: portrait){\r\n    \r\n    .questionbox{ height:auto;}\r\n    .body{\r\n        height:auto;\r\n    }\r\n}\r\n@media (max-width:600px), screen and (orientation: portrait){\r\n    \r\n    .quetion-no{\r\n        display:none;\r\n    }\r\n    .header{\r\n        height:auto;\r\n    }\r\n    .body{\r\n        height: auto;\r\n    }\r\n    .exampage{\r\n        height:100%;\r\n        overflow: hidden;\r\n    }\r\n    .avatar{\r\n    }\r\n    .data{\r\n        display:-ms-grid;\r\n        display:grid;\r\n        -ms-grid-columns: 1fr 1fr;\r\n            grid-template-columns: 1fr 1fr;\r\n    }\r\n    .page{\r\n        -ms-grid-columns: 1fr;\r\n            grid-template-columns: 1fr;\r\n    }\r\n}"
 
 /***/ }),
 
 /***/ "./src/app/components/examboard/examdash/examdash.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"exampage\">\n\n    <div class=\"page\">\n        <!-- ======(section1)=========== -->\n        <div class=\"section1\">\n            <section class=\"header\">\n                <h2>Online Examination {{examName}}</h2>\n                <div class=\"catlinks\">\n                    <!-- Nav tabs -->\n                    <ul class=\"nav nav-tabs nav-justified indigo sections\">\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link active\" data-toggle=\"tab\" href=\"#Aptitute\" role=\"tab\" (click)=\"setApti()\">Aptitute</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" data-toggle=\"tab\" href=\"#Resoning\" role=\"tab\" (click)=\"setRes()\">Resoning</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" data-toggle=\"tab\" href=\"#English\" role=\"tab\" (click)=\"setEng()\">English</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" data-toggle=\"tab\" href=\"#Genral\" role=\"tab\" (click)=\"setGen()\">Genral Awareness</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" data-toggle=\"tab\" href=\"#Computer\" role=\"tab\" (click)=\"setComp()\">Computer</a>\n                        </li>\n                    </ul>\n                </div>\n            </section>\n\n            <section class=\"body\">\n                <div class=\"questionbox\">\n                    <div class=\"tab-content\">\n                        <!--Panel 1-->\n                        <div class=\"tab-pane fade in show active\" id=\"Aptitute\" role=\"tabpanel\">\n                        <br>\n                         <div class=\"question\" *ngFor=\"let question of aptituteQues;let i=index\">\n                           <div [ngClass]=\"{'showQ': aptiLen==i ,'hideQ' : aptiLen!=i}\"> \n                                <p><b>Question {{aptiLen+1}}.</b>&nbsp;{{question.question}}</p>\n                            <ol type='a'>\n                                 <div class=\"radios\" *ngFor=\"let opt of question.options\">\n                                    <li>&nbsp;\n                                    <input type=\"radio\" name=\"Aopt{{i+1}}\" [value]=\"opt\" #optvalue (click)=\"setValue(optvalue.value)\">\n                                    <span>{{opt}}</span>\n                                    </li>\n                                 </div>\n                            </ol>\n                         </div>   \n                        </div>  \n                        </div>\n                        \n                        <!--/.Panel 1-->\n                        <!--Panel 2-->\n                        <div class=\"tab-pane fade\" id=\"Resoning\" role=\"tabpanel\">\n                            <br>\n                            <div class=\"question\" *ngFor=\"let question of resoningQuestion;let i=index\">\n                            <div [ngClass]=\"{'showQ': resLen==i ,'hideQ' : resLen!=i}\"> \n                                <p>{{resLen+1}}.&nbsp;{{question.question}}</p>\n                                <ol type=\"a\">\n                                <div class=\"radios\" *ngFor=\"let opt of question.options\">\n                                   <li>&nbsp; <input type=\"radio\" name=\"Ropt{{i+1}}\" [value]=\"opt\" #optvalue (click)=\"setValue(optvalue.value)\">\n                                    <span>{{opt}}</span>\n                                   </li> \n                                </div>\n                             </ol>\n                            </div>\n                            </div>\n                        </div>\n                        <!--/.Panel 2-->\n                        <!--Panel 3-->\n                        <div class=\"tab-pane fade\" id=\"English\" role=\"tabpanel\" >\n                            <br>\n                            <div class=\"question\" *ngFor=\"let question of englisgQuestion;let i=index\">\n                            <div [ngClass]=\"{'showQ': engLen==i ,'hideQ' : engLen!=i}\"> \n                                <p>{{engLen+1}}.&nbsp;{{question.question}}</p>\n                                <ol type=\"a\">x\n                                <div class=\"radios\" *ngFor=\"let opt of question.options\">\n                                   <li>&nbsp; <input type=\"radio\" name=\"Eopt{{i+1}}\" [value]=\"opt\" #optvalue (click)=\"setValue(optvalue.value)\">\n                                    <span>{{opt}}</span></li>\n                                </div>\n                              </ol>  \n                            </div>\n                            </div>\n                        </div>\n                        <!--/.Panel 3-->\n                        <!--Panel 4-->\n                        <div class=\"tab-pane fade\" id=\"Genral\" role=\"tabpanel\">\n                            <br>\n                            <div class=\"question\" *ngFor=\"let question of genralQuestion;let i=index\">\n                             <div [ngClass]=\"{'showQ': genLen==i ,'hideQ' : genLen!=i}\"> \n                                <p>{{genLen+1}}.&nbsp;{{question.question}}</p>\n                                <ol type=\"a\">\n                                <div class=\"radios\" *ngFor=\"let opt of question.options\">\n                                    <li><input type=\"radio\" name=\"Gopt{{i+1}}\" [value]=\"opt\" #optvalue (click)=\"setValue(optvalue.value)\">\n                                    <span>{{opt}}</span></li>\n                                </div>\n                                </ol>\n                            </div>\n                        </div>\n                        </div>\n                        <!--/.Panel 4-->\n                        <!--Panel 5-->\n                        <div class=\"tab-pane fade\" id=\"Computer\" role=\"tabpanel\" >\n                            <br>\n                            <div class=\"question\" *ngFor=\"let question of computerQuestion;let i=index\">\n                             <div [ngClass]=\"{'showQ': compLen==i ,'hideQ' : compLen!=i}\"> \n                                <p>{{compLen+1}}.&nbsp;{{question.question}}</p>\n                             <ol type=\"a\">\n                                <div class=\"radios\" *ngFor=\"let opt of question.options\">\n                                    <li><input type=\"radio\" name=\"Copt{{i+1}}\" [value]=\"opt\" #optvalue (click)=\"setValue(optvalue.value)\">\n                                    <span>{{opt}}</span></li>\n                                </div>\n                             </ol>\n                            </div>\n                         </div>\n                        </div>\n                        <!--/.Panel 5-->\n                    </div>\n                </div>\n                <section class=\"option\">\n                        <button class=\"btn btn-primary float-left\" (click)=\"reset()\">Reset</button>\n                        <button class=\"btn btn-primary float-left\" (click)=\"review()\" >Mark as review</button>\n                        <button class=\"btn btn-success float-right\" (click)=\"save()\" *ngIf=\"!next\">Save</button>\n                        <button class=\"btn btn-success float-right\" (click)=\"incrementCount()\" *ngIf=\"next\">Save & Next</button>\n                </section>\n            </section>\n\n            \n        </div>\n <!-- ======(section1)=========== -->\n\n<!-- ======(section2)=========== -->\n        <div class=\"section2\">\n            <!--Card-->\n            <div class=\"option-pane\">\n                <!--Card content-->\n                <div class=\"userinfo \">\n                    <div class=\"row\">\n                        <div class=\"col-sm-5\">\n                     <img src=\"../../../assets/images/muser.png\" class=\"avatar img-responsive z-depth-3\" *ngIf=\"gender=='male'\"> \n                     <img src=\"../../../assets/images/fuser.png\" class=\"avatar img-responsive z-depth-3\" *ngIf=\"gender=='female'\">\n                    </div>\n                    <div class=\"col-sm-7\">\n                    <div class=\"data\">\n                        <div class=\"row\">\n                                <div class=\"col-sm-6 center\">\n                                  <span class=\"header-username\">Name :</span>\n                                </div>\n                                <div class=\"col-sm-6 center\">\n                                 <span class=\"header-username\">{{username}}</span>\n                                </div>\n                        </div>\n                        <div class=\"row\">\n                                <div class=\"col-sm-6 center\">\n                                  <span class=\"header-username\">Gender :</span>\n                                </div>\n                                <div class=\"col-sm-6 center\">\n                                 <span class=\"header-username\">{{gender}}</span>\n                                </div>\n                        </div>\n                        <div class=\"row\">\n                                <div class=\"col-sm-6 center\">\n                                  <span class=\"header-username\">Age :</span>\n                                </div>\n                                <div class=\"col-sm-6 center\">\n                                 <span class=\"header-username\">{{age}}</span>\n                                </div>\n                        </div>\n                    </div>\n                </div> \n             </div>\n             </div>\n                \n                <div class=\"card-body timer\">\n                    <h4 class=\"card-title\">Time Elapsed :</h4><time>{{hr}}h:{{min}}m:{{ticks}}s</time>\n                    <hr>\n                </div>\n                <!-- Card footer -->\n                <div class=\"quetion-no\">\n                        <div class=\"card\"  style=\"height: 100%;\" *ngIf=\"apti\">\n                                <div class=\"card-header bg-primary text-white\">Question Number</div>\n                                <div class=\"card-body flex\">\n                                  <button class=\"qnum {{selectedA[i].status}}\" *ngFor=\"let apti of aptituteQues;let i=index\" (click)=\"gotoApti(i)\" id=\"apti{{i}}\"><label>{{i+1}}</label></button>\n                                </div>\n                        </div>\n                        <div class=\"card\"  style=\"height: 100%;\" *ngIf=\"res\">\n                                <div class=\"card-header bg-primary text-white\">Question Number</div>\n                                <div class=\"card-body flex\">\n                                  <button class=\"qnum {{selectedR[i].status}}\" *ngFor=\"let res of resoningQuestion;let i=index\" (click)=\"gotoRes(i)\" id=\"res{{i}}\"><label>{{i+1}}</label></button>\n                                </div>\n                        </div>\n                        <div class=\"card\"  style=\"height: 100%;\" *ngIf=\"eng\">\n                                <div class=\"card-header bg-primary text-white\">Question Number</div>\n                                <div class=\"card-body flex\">\n                                  <button class=\"qnum {{selectedE[i].status}}\" *ngFor=\"let eng of englisgQuestion;let i=index\" (click)=\"gotoEng(i)\" id=\"eng{{i}}\"><label>{{i+1}}</label></button>\n                                </div>\n                        </div>\n                        <div class=\"card\"  style=\"height: 100%;\" *ngIf=\"gen\">\n                                <div class=\"card-header bg-primary text-white\">Question Number</div>\n                                <div class=\"card-body flex\">\n                                  <button class=\"qnum {{selectedG[i].status}}\" *ngFor=\"let gen of genralQuestion;let i=index\" (click)=\"gotoGen(i)\" id=\"gen{{i}}\"><label>{{i+1}}</label></button>\n                                </div>\n                        </div>\n                        <div class=\"card\"  style=\"height: 100%;\" *ngIf=\"comp\">\n                                <div class=\"card-header bg-primary text-white\">Question Number</div>\n                                <div class=\"card-body flex\">\n                                  <button class=\"qnum {{selectedC[i].status}}\" *ngFor=\"let comp of computerQuestion;let i=index\" (click)=\"gotoComp(i)\" id=\"comp{{i}}\"><label>{{i+1}}</label></button>\n                                </div>\n                        </div>\n                </div>\n                <!-- Card footer -->\n                <section class=\"footer center\" style=\"margin-top: 10px;\">\n                    <button class=\"btn btn-warning\" (click)=\"showResult()\">Final submit</button>\n                </section>\n            </div>\n            \n            <!--/.Card-->\n        </div>\n        <!-- (setion 2)====== -->\n    </div>\n<!-- ======(section2)=========== -->\n\n</div><!-- ======(main)=========== -->\n\n<!--- stop model -->\n<div class=\"modal submitbox\" tabindex=\"-1\" role=\"dialog\" style=\"display:block;\" aria-hidden=\"true\" *ngIf=\"stop\">\n    <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n           <h1 class=\"message\">Time Over</h1>\n            <div class=\"modal-footer d-flex justify-content-center\">\n                <button class=\"btn btn-default\" (click)=\"showResult()\">Submit Test</button>\n            </div>\n        </div>\n    </div>\n</div>\n\n                "
+module.exports = "<div class=\"exampage\">\n\n    <div class=\"page\">\n        <!-- ======(section1)=========== -->\n        <div class=\"section1\">\n            <section class=\"header\">\n                <h2>Online Examination {{examName}}</h2>\n                <div class=\"catlinks\">\n                    <!-- Nav tabs -->\n                    <ul class=\"nav nav-tabs nav-justified indigo sections\">\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link active\" data-toggle=\"tab\" href=\"#Aptitute\" role=\"tab\" (click)=\"setApti()\">Aptitute</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" data-toggle=\"tab\" href=\"#Resoning\" role=\"tab\" (click)=\"setRes()\">Resoning</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" data-toggle=\"tab\" href=\"#English\" role=\"tab\" (click)=\"setEng()\">English</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" data-toggle=\"tab\" href=\"#Genral\" role=\"tab\" (click)=\"setGen()\">Genral Awareness</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" data-toggle=\"tab\" href=\"#Computer\" role=\"tab\" (click)=\"setComp()\">Computer</a>\n                        </li>\n                    </ul>\n                </div>\n            </section>\n\n            <section class=\"body\">\n                <div class=\"questionbox\">\n                    <div class=\"tab-content\">\n                        <!--Panel 1-->\n                        <div class=\"tab-pane fade in show active\" id=\"Aptitute\" role=\"tabpanel\">\n                        <br>\n                         <div class=\"question\" *ngFor=\"let question of aptituteQues;let i=index\">\n                           <div [ngClass]=\"{'showQ': aptiLen==i ,'hideQ' : aptiLen!=i}\"> \n                                <p><b>Question {{aptiLen+1}}.</b>&nbsp;{{question.question}}</p>\n                            <ol type='a'>\n                                 <div class=\"radios\" *ngFor=\"let opt of question.options\">\n                                    <li>&nbsp;\n                                    <input type=\"radio\" name=\"Aopt{{i+1}}\" [value]=\"opt\" #optvalue (click)=\"setValue(optvalue.value)\">\n                                    <span>{{opt}}</span>\n                                    </li>\n                                 </div>\n                            </ol>\n                         </div>   \n                        </div>  \n                        </div>\n                        \n                        <!--/.Panel 1-->\n                        <!--Panel 2-->\n                        <div class=\"tab-pane fade\" id=\"Resoning\" role=\"tabpanel\">\n                            <br>\n                            <div class=\"question\" *ngFor=\"let question of resoningQuestion;let i=index\">\n                            <div [ngClass]=\"{'showQ': resLen==i ,'hideQ' : resLen!=i}\"> \n                                <p>{{resLen+1}}.&nbsp;{{question.question}}</p>\n                                <ol type=\"a\">\n                                <div class=\"radios\" *ngFor=\"let opt of question.options\">\n                                   <li>&nbsp; <input type=\"radio\" name=\"Ropt{{i+1}}\" [value]=\"opt\" #optvalue (click)=\"setValue(optvalue.value)\">\n                                    <span>{{opt}}</span>\n                                   </li> \n                                </div>\n                             </ol>\n                            </div>\n                            </div>\n                        </div>\n                        <!--/.Panel 2-->\n                        <!--Panel 3-->\n                        <div class=\"tab-pane fade\" id=\"English\" role=\"tabpanel\" >\n                            <br>\n                            <div class=\"question\" *ngFor=\"let question of englisgQuestion;let i=index\">\n                            <div [ngClass]=\"{'showQ': engLen==i ,'hideQ' : engLen!=i}\"> \n                                <p>{{engLen+1}}.&nbsp;{{question.question}}</p>\n                                <ol type=\"a\">x\n                                <div class=\"radios\" *ngFor=\"let opt of question.options\">\n                                   <li>&nbsp; <input type=\"radio\" name=\"Eopt{{i+1}}\" [value]=\"opt\" #optvalue (click)=\"setValue(optvalue.value)\">\n                                    <span>{{opt}}</span></li>\n                                </div>\n                              </ol>  \n                            </div>\n                            </div>\n                        </div>\n                        <!--/.Panel 3-->\n                        <!--Panel 4-->\n                        <div class=\"tab-pane fade\" id=\"Genral\" role=\"tabpanel\">\n                            <br>\n                            <div class=\"question\" *ngFor=\"let question of genralQuestion;let i=index\">\n                             <div [ngClass]=\"{'showQ': genLen==i ,'hideQ' : genLen!=i}\"> \n                                <p>{{genLen+1}}.&nbsp;{{question.question}}</p>\n                                <ol type=\"a\">\n                                <div class=\"radios\" *ngFor=\"let opt of question.options\">\n                                    <li><input type=\"radio\" name=\"Gopt{{i+1}}\" [value]=\"opt\" #optvalue (click)=\"setValue(optvalue.value)\">\n                                    <span>{{opt}}</span></li>\n                                </div>\n                                </ol>\n                            </div>\n                        </div>\n                        </div>\n                        <!--/.Panel 4-->\n                        <!--Panel 5-->\n                        <div class=\"tab-pane fade\" id=\"Computer\" role=\"tabpanel\" >\n                            <br>\n                            <div class=\"question\" *ngFor=\"let question of computerQuestion;let i=index\">\n                             <div [ngClass]=\"{'showQ': compLen==i ,'hideQ' : compLen!=i}\"> \n                                <p>{{compLen+1}}.&nbsp;{{question.question}}</p>\n                             <ol type=\"a\">\n                                <div class=\"radios\" *ngFor=\"let opt of question.options\">\n                                    <li><input type=\"radio\" name=\"Copt{{i+1}}\" [value]=\"opt\" #optvalue (click)=\"setValue(optvalue.value)\">\n                                    <span>{{opt}}</span></li>\n                                </div>\n                             </ol>\n                            </div>\n                         </div>\n                        </div>\n                        <!--/.Panel 5-->\n                    </div>\n                </div>\n                <section class=\"option\">\n                        <button class=\"btn btn-primary float-left\" (click)=\"reset()\">Reset</button>\n                        <button class=\"btn btn-primary float-left\" (click)=\"review()\" >Mark as review</button>\n                        <button class=\"btn btn-success float-right\" (click)=\"save()\" *ngIf=\"!next\">Save</button>\n                        <button class=\"btn btn-success float-right\" (click)=\"incrementCount()\" *ngIf=\"next\">Save & Next</button>\n                </section>\n            </section>\n\n            \n        </div>\n <!-- ======(section1)=========== -->\n\n<!-- ======(section2)=========== -->\n        <div class=\"section2\">\n            <!--Card-->\n            <div class=\"option-pane\">\n                <!--Card content-->\n                <div class=\"userinfo \">\n                    <div class=\"row\">\n                        <div class=\"col-sm-5\">\n                     <img src=\"../../../assets/images/muser.png\" class=\"avatar img-responsive z-depth-3\" *ngIf=\"gender=='male'\"> \n                     <img src=\"../../../assets/images/fuser.png\" class=\"avatar img-responsive z-depth-3\" *ngIf=\"gender=='female'\">\n                    </div>\n                    <div class=\"col-sm-7\">\n                    <div class=\"data\">\n                        <div class=\"row\">\n                                <div class=\"col-sm-6 center\">\n                                  <span class=\"header-username\">Name :</span>\n                                </div>\n                                <div class=\"col-sm-6 center\">\n                                 <span class=\"header-username\">{{username}}</span>\n                                </div>\n                        </div>\n                        <div class=\"row\">\n                                <div class=\"col-sm-6 center\">\n                                  <span class=\"header-username\">Gender :</span>\n                                </div>\n                                <div class=\"col-sm-6 center\">\n                                 <span class=\"header-username\">{{gender}}</span>\n                                </div>\n                        </div>\n                        <div class=\"row\">\n                                <div class=\"col-sm-6 center\">\n                                  <span class=\"header-username\">Age :</span>\n                                </div>\n                                <div class=\"col-sm-6 center\">\n                                 <span class=\"header-username\">{{age}}</span>\n                                </div>\n                        </div>\n                    </div>\n                </div> \n             </div>\n             </div>\n                \n                <div class=\"card-body timer\">\n                    <h4 class=\"card-title\">Time Left :</h4><time>{{hr}}h:{{min}}m:{{sec}}s</time>\n                    <hr>\n                </div>\n                <!-- Card footer -->\n                <div class=\"quetion-no\">\n                        <div class=\"card\"  style=\"height: 100%;\" *ngIf=\"apti\">\n                                <div class=\"card-header bg-primary text-white\">Question Number</div>\n                                <div class=\"card-body flex\">\n                                  <button class=\"qnum {{selectedA[i].status}}\" *ngFor=\"let apti of aptituteQues;let i=index\" (click)=\"gotoApti(i)\" id=\"apti{{i}}\"><label>{{i+1}}</label></button>\n                                </div>\n                        </div>\n                        <div class=\"card\"  style=\"height: 100%;\" *ngIf=\"res\">\n                                <div class=\"card-header bg-primary text-white\">Question Number</div>\n                                <div class=\"card-body flex\">\n                                  <button class=\"qnum {{selectedR[i].status}}\" *ngFor=\"let res of resoningQuestion;let i=index\" (click)=\"gotoRes(i)\" id=\"res{{i}}\"><label>{{i+1}}</label></button>\n                                </div>\n                        </div>\n                        <div class=\"card\"  style=\"height: 100%;\" *ngIf=\"eng\">\n                                <div class=\"card-header bg-primary text-white\">Question Number</div>\n                                <div class=\"card-body flex\">\n                                  <button class=\"qnum {{selectedE[i].status}}\" *ngFor=\"let eng of englisgQuestion;let i=index\" (click)=\"gotoEng(i)\" id=\"eng{{i}}\"><label>{{i+1}}</label></button>\n                                </div>\n                        </div>\n                        <div class=\"card\"  style=\"height: 100%;\" *ngIf=\"gen\">\n                                <div class=\"card-header bg-primary text-white\">Question Number</div>\n                                <div class=\"card-body flex\">\n                                  <button class=\"qnum {{selectedG[i].status}}\" *ngFor=\"let gen of genralQuestion;let i=index\" (click)=\"gotoGen(i)\" id=\"gen{{i}}\"><label>{{i+1}}</label></button>\n                                </div>\n                        </div>\n                        <div class=\"card\"  style=\"height: 100%;\" *ngIf=\"comp\">\n                                <div class=\"card-header bg-primary text-white\">Question Number</div>\n                                <div class=\"card-body flex\">\n                                  <button class=\"qnum {{selectedC[i].status}}\" *ngFor=\"let comp of computerQuestion;let i=index\" (click)=\"gotoComp(i)\" id=\"comp{{i}}\"><label>{{i+1}}</label></button>\n                                </div>\n                        </div>\n                </div>\n                <!-- Card footer -->\n                <section class=\"footer center\" style=\"margin-top: 10px;\">\n                    <button class=\"btn btn-warning\" (click)=\"showResult()\">Final submit</button>\n                </section>\n            </div>\n            \n            <!--/.Card-->\n        </div>\n        <!-- (setion 2)====== -->\n    </div>\n<!-- ======(section2)=========== -->\n\n</div><!-- ======(main)=========== -->\n\n<!--- stop model -->\n<div class=\"modal submitbox\" tabindex=\"-1\" role=\"dialog\" style=\"display:block;\" aria-hidden=\"true\" *ngIf=\"stop\">\n    <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n           <h1 class=\"message\">Time Over</h1>\n            <div class=\"modal-footer d-flex justify-content-center\">\n                <button class=\"btn btn-default\" (click)=\"showResult()\">Submit Test</button>\n            </div>\n        </div>\n    </div>\n</div>\n\n                "
 
 /***/ }),
 
@@ -1103,8 +1385,9 @@ var ExamdashComponent = /** @class */ (function () {
         this.age = 20;
         //selection not working
         this.ticks = 0;
-        this.hr = 0;
-        this.min = 0;
+        this.hr = '';
+        this.sec = '';
+        this.min = '';
         this.stop = false;
         this.selectedA = [];
         this.selectedE = [];
@@ -1180,6 +1463,7 @@ var ExamdashComponent = /** @class */ (function () {
     }
     ExamdashComponent.prototype.ngOnInit = function () {
         //timer
+        this.endtime = new Date(Date.parse(new Date().toString()) + 2 * 60 * 60 * 1000);
         this.timer();
         this.apti = true;
     };
@@ -1219,27 +1503,47 @@ var ExamdashComponent = /** @class */ (function () {
         this.rs.setCOption(this.selectedC);
         this.router.navigate(['/examboard/exam/resultpage']);
     };
-    ExamdashComponent.prototype.incTimer = function () {
-        this.min = this.min + 1;
-        if (this.min == 60) {
-            this.hr = this.hr + 1;
-            this.ticks = 0;
-            this.min = 0;
-            if (this.hr == 1) {
-                this.stop = true;
-                this.subscription.unsubscribe();
-            }
+    // incTimer(){
+    //  this.min = this.min - 1;
+    //  if(this.min == 0)
+    //   {
+    //this.hr= this.hr - 1; this.ticks =60 ; this.min = 60;
+    //   if(this.hr == 0)
+    //   {
+    //    this.stop = true;
+    ///this.subscription.unsubscribe();
+    //  }
+    //}
+    //}
+    ExamdashComponent.prototype.getTimeRemaining = function (endtime) {
+        var t = Date.parse(endtime) - Date.parse(new Date().toString());
+        var seconds = Math.floor((t / 1000) % 60);
+        var minutes = Math.floor((t / 1000 / 60) % 60);
+        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        if (seconds == 0 && minutes == 0 && hours == 0) {
+            this.stop = true;
+            this.subscription.unsubscribe();
         }
+        return {
+            'total': t,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
+    };
+    ExamdashComponent.prototype.updateClock = function () {
+        var t = this.getTimeRemaining(this.endtime);
+        this.hr = ('0' + t.hours).slice(-2).toString();
+        this.min = ('0' + t.minutes).slice(-2).toString();
+        this.sec = ('0' + t.seconds).slice(-2).toString();
     };
     ExamdashComponent.prototype.timer = function () {
         var _this = this;
         var timer = __WEBPACK_IMPORTED_MODULE_3_rxjs_observable_TimerObservable__["a" /* TimerObservable */].create(2000, 1000);
         this.subscription = timer.subscribe(function (t) {
-            _this.ticks = t % 60 + 1;
-            if (_this.ticks == 60) {
-                _this.incTimer();
-                _this.ticks = 0;
-            }
+            //this.ticks = t%61 -1;
+            //if(this.ticks == 0) { this.ticks =60;}//this.incTimer();this. this.updateClock();
+            _this.updateClock();
         });
     };
     //=============(tab setting)============//
@@ -1583,7 +1887,7 @@ module.exports = ".statusbox{\r\n    display:-webkit-box;\r\n    display:-ms-fle
 /***/ "./src/app/components/examboard/examresult/examresult.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"result-body container-fluid\">\n  <!-- ===========(header)===========-->\n  <div class=\"heading container\">\n      <div class=\"jumbotron\">\n          <h1 class=\"display-9\">Score Board!</h1>\n          <p class=\"lead\">Total score you get on this exam.</p>\n          <hr class=\"my-4\">\n             \n          <div class=\"statusbox\">               \n                <div class=\"card text-white bg-success mb-3\" style=\"max-width: 20rem;\" >\n                  <div class=\"card-header\">Marks Obtained</div>\n                  <div class=\"card-body\">\n                      <h4 class=\"card-title\">Score : {{TotalMarksOb}} / {{TotalMarks}}</h4>\n                  </div>\n                </div>\n          </div>\n          <hr class=\"my-4\">\n          <div class=\"center\">\n              <button type=\"button\" class=\"btn btn-secondary center\" (click)=\"goHome()\" onclick=\"exitFullScreen()\">Exit Exam</button>\n          </div>\n        </div>\n  </div>\n  <!-- ===========(header)===========-->\n\n \n\n</div>"
+module.exports = "<div class=\"result-body container-fluid\">\n  <!-- ===========(header)===========-->\n  <div class=\"heading container\">\n      <div class=\"jumbotron\">\n          <h1 class=\"display-9\">Score Board!</h1>\n          <p class=\"lead\">Total score you get on this exam.</p>\n          <p>{{msg}}</p>\n          <hr class=\"my-4\">\n             \n          <div class=\"statusbox\">               \n                <div class=\"card text-white bg-success mb-3\" style=\"max-width: 20rem;\" >\n                  <div class=\"card-header\">Marks Obtained</div>\n                  <div class=\"card-body\">\n                      <h4 class=\"card-title\">Score : {{TotalMarksOb}} / {{TotalMarks}}</h4>\n                  </div>\n                </div>\n          </div>\n          <hr class=\"my-4\">\n          <div class=\"center\">\n              <button type=\"button\" class=\"btn btn-secondary center\" (click)=\"goHome()\" onclick=\"exitFullScreen()\">Exit Exam</button>\n          </div>\n        </div>\n  </div>\n  <!-- ===========(header)===========-->\n\n \n\n</div>"
 
 /***/ }),
 
@@ -1595,7 +1899,8 @@ module.exports = "<div class=\"result-body container-fluid\">\n  <!-- ==========
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_result_service__ = __webpack_require__("./src/app/services/result.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_exam_service__ = __webpack_require__("./src/app/services/exam.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1609,11 +1914,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ExamresultComponent = /** @class */ (function () {
-    function ExamresultComponent(authService, rs, router) {
+    function ExamresultComponent(authService, rs, router, es) {
         this.authService = authService;
         this.rs = rs;
         this.router = router;
+        this.es = es;
         //total marks
         this.aptiTmark = 0;
         this.resTmark = 0;
@@ -1636,8 +1943,11 @@ var ExamresultComponent = /** @class */ (function () {
         this.TotalMarks = 0;
         this.TotalMarksOb = 0;
         this.TotalPercentage = 0.0;
+        this.examname = "simple test 1";
+        this.msg = '';
     }
     ExamresultComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.populateTotalCatMarks();
         this.setAptiObtainMArk(this.rs.selectedA, this.rs.aptituteAns);
         this.setRObtainMarks(this.rs.selectedR, this.rs.resoningAns);
@@ -1645,6 +1955,24 @@ var ExamresultComponent = /** @class */ (function () {
         this.setGObtainMarks(this.rs.selectedG, this.rs.genralAns);
         this.setCObtainMarks(this.rs.selectedC, this.rs.computerAns);
         this.setTotalValue();
+        var user = localStorage.getItem('user');
+        var data = JSON.parse(user);
+        var result = {
+            examname: data.exam,
+            details: {
+                username: data.name,
+                score: this.TotalMarksOb,
+                Tscore: this.TotalMarks
+            }
+        };
+        this.es.addResult(result).subscribe(function (data) {
+            if (data.success) {
+                _this.msg = data.msg;
+            }
+            else {
+                _this.msg = data.msg;
+            }
+        });
     };
     ExamresultComponent.prototype.populateTotalCatMarks = function () {
         this.aptiTmark = this.rs.aptituteAns.length;
@@ -1711,7 +2039,8 @@ var ExamresultComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_1__services_result_service__["a" /* ResultService */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_3__services_exam_service__["a" /* ExamService */]])
     ], ExamresultComponent);
     return ExamresultComponent;
 }());
@@ -2555,14 +2884,14 @@ var AuthService = /** @class */ (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         // let ep = this.prepEndpoint('http://localhost:3000/users/register');
-        var ep = this.prepEndpoint('users/register');
+        var ep = this.prepEndpoint('http://localhost:3000/users/register');
         return this.http.post(ep, user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.changePass = function (pass) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = this.prepEndpoint('users/changepass');
+        var ep = this.prepEndpoint('http://localhost:3000/users/changepass');
         console.log(pass);
         return this.http.post(ep, pass, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -2570,14 +2899,14 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = this.prepEndpoint('users/authenticate');
+        var ep = this.prepEndpoint('http://localhost:3000/users/authenticate');
         return this.http.post(ep, user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.authenticateAdmin = function (admin) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = this.prepEndpoint('admin/authenticate');
+        var ep = this.prepEndpoint('http://localhost:3000/admin/authenticate');
         return this.http.post(ep, admin, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2585,7 +2914,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.resetPass = function (email) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = this.prepEndpoint('users/resetpass');
+        var ep = this.prepEndpoint('http://localhost:3000/users/resetpass');
         return this.http.post(ep, email, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2594,7 +2923,7 @@ var AuthService = /** @class */ (function () {
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        var ep = this.prepEndpoint('users/profile');
+        var ep = this.prepEndpoint('http://localhost:3000/users/profile');
         return this.http.get(ep, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2621,6 +2950,14 @@ var AuthService = /** @class */ (function () {
         this.authToken = null;
         this.user = null;
         localStorage.clear();
+    };
+    //getting all users data
+    AuthService.prototype.getUsers = function () {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        var ep = 'http://localhost:3000/users/alluser';
+        return this.http.get(ep, { headers: headers })
+            .map(function (res) { return res.json(); });
     };
     AuthService.prototype.prepEndpoint = function (ep) {
         if (this.isDev) {
@@ -2666,12 +3003,12 @@ var ExamService = /** @class */ (function () {
     function ExamService(http) {
         this.http = http;
     }
-    //getting topics
+    //getting exams
     ExamService.prototype.getExams = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         //let ep = 'http://localhost:3000/exams/examnames';
-        var ep = 'exams/examnames';
+        var ep = 'http://localhost:3000/exams/examnames';
         return this.http.get(ep, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2679,7 +3016,31 @@ var ExamService = /** @class */ (function () {
     ExamService.prototype.addExam = function (exam) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'exams/addexam';
+        var ep = 'http://localhost:3000/exams/addexam';
+        return this.http.post(ep, exam, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    //update exam
+    ExamService.prototype.updateExam = function (exam) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        var ep = 'http://localhost:3000/exams/updateexam';
+        return this.http.post(ep, exam, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    //update question
+    ExamService.prototype.updateQues = function (ques) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        var ep = 'http://localhost:3000/exams/updateQues';
+        return this.http.post(ep, ques, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    //deleting exam
+    ExamService.prototype.deleteExam = function (exam) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        var ep = 'http://localhost:3000/exams/deleteexam';
         return this.http.post(ep, exam, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2687,7 +3048,15 @@ var ExamService = /** @class */ (function () {
     ExamService.prototype.addExamQuestion = function (examQuestion) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'exams/addquestion';
+        var ep = 'http://localhost:3000/exams/addquestion';
+        return this.http.post(ep, examQuestion, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    //deleting question to particular exam
+    ExamService.prototype.deleteExamQuestion = function (examQuestion) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        var ep = 'http://localhost:3000/exams/deletequestion';
         return this.http.post(ep, examQuestion, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2695,7 +3064,7 @@ var ExamService = /** @class */ (function () {
     ExamService.prototype.getExamQuestion = function (exam) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'exams/getquestions';
+        var ep = 'http://localhost:3000/exams/getquestions';
         return this.http.post(ep, exam, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2703,8 +3072,16 @@ var ExamService = /** @class */ (function () {
     ExamService.prototype.getExamQuestionStat = function (exam) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'exams/examquesstat';
+        var ep = 'http://localhost:3000/exams/examquesstat';
         return this.http.post(ep, exam, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    //getting number of question of particular exam questions
+    ExamService.prototype.addResult = function (result) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        var ep = 'http://localhost:3000/result/addResult';
+        return this.http.post(ep, result, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ExamService.prototype.getNativeWindow = function () {
@@ -2751,7 +3128,7 @@ var QuestionService = /** @class */ (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         // let ep = 'http://localhost:3000/question/add';
-        var ep = 'question/add';
+        var ep = 'http://localhost:3000/question/add';
         return this.http.post(ep, question, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2759,39 +3136,39 @@ var QuestionService = /** @class */ (function () {
     QuestionService.prototype.getCategory = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'category/getcategories';
+        var ep = 'http://localhost:3000/category/getcategories';
         return this.http.get(ep, { headers: headers })
-            .map(function (res) { return res.json(); });
-    };
-    //getting topics
-    QuestionService.prototype.getTopics = function (data) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/json');
-        var ep = 'category/gettopics';
-        return this.http.post(ep, data, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     //adding category
     QuestionService.prototype.addCategory = function (category) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'category/addcategory';
+        var ep = 'http://localhost:3000/category/addcategory';
         return this.http.post(ep, category, { headers: headers })
             .map(function (res) { return res.json(); });
     };
-    //adding topic
-    QuestionService.prototype.addTopic = function (topic) {
+    //adding category
+    QuestionService.prototype.updateCategory = function (category) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'category/addtopic';
-        return this.http.post(ep, topic, { headers: headers })
+        var ep = 'http://localhost:3000/category/updatecat';
+        return this.http.post(ep, category, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    //adding category
+    QuestionService.prototype.deleteCategory = function (category) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        var ep = 'http://localhost:3000/category/removecat';
+        return this.http.post(ep, category, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     //adding exam name
     QuestionService.prototype.addExam = function (exam) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'exams/addexam';
+        var ep = 'http://localhost:3000/exams/addexam';
         return this.http.post(ep, exam, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2799,7 +3176,7 @@ var QuestionService = /** @class */ (function () {
     QuestionService.prototype.addExamQuestion = function (examQuestion) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'exams/addquestion';
+        var ep = 'http://localhost:3000/exams/addquestion';
         return this.http.post(ep, examQuestion, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2807,7 +3184,7 @@ var QuestionService = /** @class */ (function () {
     QuestionService.prototype.getExamQuestion = function (exam) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        var ep = 'exams/getquestions';
+        var ep = 'http://localhost:3000/exams/getquestions';
         return this.http.post(ep, exam, { headers: headers })
             .map(function (res) { return res.json(); });
     };
@@ -2828,6 +3205,8 @@ var QuestionService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResultService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2838,8 +3217,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ResultService = /** @class */ (function () {
-    function ResultService() {
+    function ResultService(http) {
+        this.http = http;
         //answers
         this.aptituteAns = [];
         this.resoningAns = [];
@@ -2890,9 +3272,18 @@ var ResultService = /** @class */ (function () {
         this.resoningAns = [];
         this.genralAns = [];
     };
+    //getting exams
+    ResultService.prototype.getResults = function (examname) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        //let ep = 'http://localhost:3000/exams/examnames';
+        var ep = 'http://localhost:3000/result/getresults';
+        return this.http.post(ep, examname, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
     ResultService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
     ], ResultService);
     return ResultService;
 }());
