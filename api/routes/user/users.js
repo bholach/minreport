@@ -8,19 +8,38 @@ const User = require('../../models/user');
 user:Object;
 // Register
 router.post('/register', (req, res, next) => {
+   let name = req.body.fname+''+req.body.lname;
   let newUser = new User({
-    name: req.body.name,
+    name: name,
     email: req.body.email,
     password: req.body.password,
     gender:req.body.gender,
-    exam:req.body.exam
+    exam:req.body.exam,
+    fathername: req.body.father,
+    dob:req.body.dob,
+
+    qualification:req.body.degree,
+    board:req.body.boru,
+    collagename:req.body.collage,
+    collagecity:req.body.collagecity,
+    collagepin:req.body.collagepin,
+    percentage:req.body.percantage,
+
+    address:req.body.address,
+    landmark:req.body.lmark,
+    state:req.body.state,
+    city:req.body.city,
+    pin:req.body.pin,
+    mobile:req.body.mobile,
+    regnum: regnum(req.body.fname,req.body.dob)
   });
-  console.log(newUser.name);
+
   User.addUser(newUser, (err, user) => {
     if(err){
+      console.log(err);
       res.json({success: false, msg:'Failed to register user'});
     } else {
-      res.json({success: true, msg:'User registered'});
+      res.json({success: true, msg:'User registered',regnum:user.regnum});
     }
   });
 });
@@ -48,11 +67,12 @@ router.post('/authenticate', (req, res, next) => {
             name: user.name,
             email: user.email,
             gender:user.gender,
-            exam:user.exam
+            exam:user.exam,
+            dob:user.dob
           }
         });
       } else {
-        return res.json({success: false, msg: 'Wrong username or password'});
+        return res.json({success: false, msg: 'Wrong email or password'});
       }
     });
   });
@@ -102,10 +122,27 @@ router.post('/changepass', (req, res, next) => {
           })
         }
         else{
-          return res.json({success: false, msg: 'No account linked to this email'});
+          return res.json({success: false, msg: 'No account linked with this email'});
         }
       }
     });
+  });
+
+  //send user query
+  router.post('/senquery',(req,res,next) =>{
+    let user = {
+      name:req.body.name,
+      email:req.body.email,
+      query:req.body.query
+    }
+    User.sendRequest(user,(err,data) =>{
+       if(err){
+        return res.json({success: false, msg: 'some error occured'});
+       }
+       else{
+        return res.json({success: true, msg: 'Request has been submitted successfully'});
+       }
+    }); 
   });
 // get users
 router.get('/alluser', (req, res, next) => {
@@ -121,7 +158,9 @@ router.get('/alluser', (req, res, next) => {
             email:data.email,
             gender:data.gender,
             age:data.age,
-            exam:data.exam
+            exam:data.exam,
+            regnum:data.regnum,
+            dob:data.dob
           });
         });
         res.json({success: true, users: usersData});
@@ -146,5 +185,14 @@ router.get('/everifykey:everifykey?', (req, res, next) => {
 
 });
 
+var regnum = function(name,dob){
+  let pre = dob[0]+dob[1];
+  let pre2 = dob[2]+dob[3];
+  let mid = dob[5]+dob[6];
+  let last = dob[8]+dob[9];
+  let str = name[1].toUpperCase()+mid+name[2].toUpperCase()+last+name[0].toUpperCase()+pre+name[3].toUpperCase()+pre2;
+  //return str.replace(/\s-/gi,"");
+  return str;
+}
 
 module.exports = router;

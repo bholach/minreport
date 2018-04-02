@@ -1,47 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Online Examination Portal | O-EXAM)</title>
-  <base href="/">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="theme-color" content="#f48c5b">
-  <meta name="description" content="free online examination"/>
-  <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="msapplication-starturl" content="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  
-  <link rel="manifest" href="manifest.json">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="./assets/css/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="./assets/css/style.css" rel="stylesheet">
-</head>
-<body>
-  <app-root></app-root>
-  <!-- SCRIPTS -->
-    <!-- JQuery -->
-    <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="./assets/js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="./assets/js/mdb.min.js"></script>
-
-    <noscript>
-      This app works with Javascript being enabled. Enable Javascript in Browser and try again!
-    </noscript>
-    <script>
-      function requestFullScreen(element) {
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Online Examination Portal | O-EXAM)</title><base href="/"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="theme-color" content="#f48c5b"><meta name="description" content="free online examination"/><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="msapplication-starturl" content="/"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><!-- Bootstrap core CSS --><link href="./assets/css/bootstrap.min.css" rel="stylesheet"><!-- Material Design Bootstrap --><link href="./assets/css/mdb.min.css" rel="stylesheet"><!-- Your custom styles (optional) --><link href="./assets/css/style.css" rel="stylesheet"><link href="styles.0736f3bd0c6d0191a646.bundle.css" rel="stylesheet"/></head><body><app-root></app-root><!-- SCRIPTS --><!-- JQuery --><script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script><!-- Bootstrap tooltips --><script type="text/javascript" src="./assets/js/popper.min.js"></script><!-- Bootstrap core JavaScript --><script type="text/javascript" src="./assets/js/bootstrap.min.js"></script><!-- MDB core JavaScript --><script type="text/javascript" src="./assets/js/mdb.min.js"></script><noscript>This app works with Javascript being enabled. Enable Javascript in Browser and try again!</noscript><script>function requestFullScreen(element) {
     // Supports most browsers and their versions.
     var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
     if (requestMethod) { // Native full screen.
@@ -54,7 +11,7 @@
     }
   }
   function exitFullScreen()
-{
+    {
     if (document.exitFullscreen)
         document.exitFullscreen();
     else if (document.msExitFullscreen)
@@ -63,10 +20,9 @@
         document.mozCancelFullScreen();
     else if (document.webkitExitFullscreen)
         document.webkitExitFullscreen();
-}
-var elem = document.body; // Make the body go full screen.
-requestFullScreen(elem);
-    </script>
-    
-<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
-</html>
+        }
+// Make the body go full screen.
+   function changeScreenSize(){
+    var elem = document.body; 
+    requestFullScreen(elem);
+   }</script><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.bf95165a1d5098766b92.bundle.js"></script><script type="text/javascript" src="main.305f8a93efb45a81dba6.bundle.js"></script></body></html>

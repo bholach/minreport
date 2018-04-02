@@ -6,25 +6,26 @@ const uname="uic.17mca1024@gmail.com";
 const pass="tejaSh816";
 // User Schema
 const UserSchema = mongoose.Schema({
-  name: {
-    type: String
-  },
-  email: {
-    type: String,
-    required:true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  gender:{
-    type:String,
-    required: true
-  },
-  exam:{
-    type:String,
-    required: true
-  }
+  name: {type: String ,required:true},
+  fathername: { type: String,required:true },
+  email: { type: String,required:true },
+  password: { type: String,required: true},
+  gender:{ type:String,required: true},
+  dob:{type:String,required:true},
+  exam:{type:String,required: true},
+  qualification:{type:String,required: true},
+  board:{type:String,required: true},
+  collagename:{type:String,required: true},
+  collagecity:{type:String,required: true},
+  collagepin:{type:String,required: true},
+  percentage:{type:String,required: true},
+  address:{type:String,required: true},
+  landmark:{type:String,required: true},
+  state:{type:String,required: true},
+  city:{type:String,required: true},
+  pin:{type:String,required: true},
+  mobile:{type:String,required: true},
+  regnum:{type:String,required: true}
 });
 
 const User = module.exports = mongoose.model('User', UserSchema,'user');
@@ -91,6 +92,26 @@ var mailOptions = {
   subject: 'Password reset link', // Subject line
   text: 'Password reset link', // plaintext body
   html: '<b>Hello '+user.name+'</b><br><br>click below button to reset your password<br><br><br><center><a href="http://localhost:4200/resetpass/'+user._id+'" style="color:white;padding:20px;border:none;background:#0bf;width:80px;height:40px;">Reset Link</a></center>' // html body
+};
+// send mail with defined transport object
+transporter.sendMail(mailOptions, callback);
+}
+
+//sending mail
+module.exports.sendRequest = function(user,callback){
+  var transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // use SSL
+    auth: {user: uname, pass: pass}
+});
+// setup e-mail data
+var mailOptions = {
+  from: '"online Examination Portal " <oexam@oexam.com>', // sender address (who sends)
+  to: 'uic.17mca1024@gmail.com', // list of receivers (who receives)
+  subject: 'Student Query', // Subject line
+  text: 'Student Query', // plaintext body
+  html: '<b>Name </b> : '+user.name+'<br><br><b>Email </b>: '+user.email+'<br><br><b>Query</b> : <p>'+user.query // html body
 };
 // send mail with defined transport object
 transporter.sendMail(mailOptions, callback);
